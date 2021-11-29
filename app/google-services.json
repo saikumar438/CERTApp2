@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "108291993162",
+    "project_id": "authentication-69154",
+    "storage_bucket": "authentication-69154.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:108291993162:android:30ff7c95fa6b16be7c00b3",
+        "android_client_info": {
+          "package_name": "com.example.certapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "108291993162-4qqfosmb066uitsk942pgp224peg6f7t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoySdujTySnSy-vBbH1g5FByWM8WzI6FY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "108291993162-4qqfosmb066uitsk942pgp224peg6f7t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:108291993162:android:155849ead83fe2997c00b3",
+        "android_client_info": {
+          "package_name": "com.precisesolutions.Certapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "108291993162-4qqfosmb066uitsk942pgp224peg6f7t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoySdujTySnSy-vBbH1g5FByWM8WzI6FY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "108291993162-4qqfosmb066uitsk942pgp224peg6f7t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
