@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -25,9 +26,11 @@ public class HomeScreen extends AppCompatActivity {
 
     public void logout(View view)
     {
+        Toast.makeText(this, "User logged out successfully", Toast.LENGTH_LONG).show();
         FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
+
 
     }
 
