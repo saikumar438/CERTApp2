@@ -9,7 +9,10 @@ import android.util.Log;
 import android.util.Patterns;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -23,12 +26,22 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-public class Register extends AppCompatActivity {
+public class Register extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    public void onItemSelected(AdapterView<?> parent, View view,
+                               int pos, long id) {
+        // An item was selected. You can retrieve the selected item using
+        parent.getItemAtPosition(pos);
+    }
 
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
+
+    }
     private FirebaseAuth mAuth;
     private FirebaseFirestore fStore;
     private String userID;
     private EditText etFullName,etEmail,etPhoneNumber,etPassword,etAddress,etQualification;
+    private Spinner spinner ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +56,15 @@ public class Register extends AppCompatActivity {
         etPhoneNumber =findViewById(R.id.etPhone);
         etPassword = findViewById(R.id.etPassword);
         etAddress =findViewById(R.id.etAddress);
-        etQualification = findViewById(R.id.etQualification);
+        spinner = (Spinner) findViewById(R.id.etQualification);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.qualifications_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(this);
     }
 
 
