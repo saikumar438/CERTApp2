@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                         if(user.isEmailVerified())
                         {
                             Toast.makeText(MainActivity.this, "User Logged In Successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(MainActivity.this,SecondActivity.class);
+                            Intent intent = new Intent(MainActivity.this,HomeScreen.class);
                                 startActivity(intent);
                         }else
                         {

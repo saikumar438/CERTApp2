@@ -3,7 +3,6 @@ package com.example.certapp;
 public class User {
 
     public String fullName,phone,email;
-    //this is android 
     public User()
     {
 
