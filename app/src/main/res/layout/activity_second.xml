@@ -52,23 +52,11 @@
         app:layout_constraintVertical_bias="0.008"
         app:srcCompat="@drawable/certlogo1" />
 
-    <Button
 
-    <
-
-    <
-
-    <
-
-    <
-
-    <
-
-    <
 
     <RadioButton
         android:id="@+id/radioButton"
-        android:layout_width="100"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:background="@color/quantum_googredA700"
         android:text="High"
@@ -78,30 +66,11 @@
         app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.411" /><![CDATA[
-
-    =======
-        android:id="@+id/button"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:background="@drawable/rounded_corners"
-        android:onClick="logout"
-        android:text="Logout"
->>>>>>> f82b616b35e4d29c95bff4750e8bcf2cee7b47f3
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.411" />
-
-
-
-    ]]>
 
     <RadioButton
         android:id="@+id/radioButton2"
-        android:layout_width="100"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:background="@color/purple_500"
         android:text="Medium"
@@ -115,7 +84,7 @@
 
     <RadioButton
         android:id="@+id/radioButton3"
-        android:layout_width="100"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:background="@color/quantum_googgreen900"
         android:text="Low"
