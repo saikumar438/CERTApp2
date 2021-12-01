@@ -53,18 +53,18 @@
         app:srcCompat="@drawable/certlogo1" />
 
     <Button
-<<<<<<< HEAD
-        android:id="@+id/button3"
-        android:layout_width="159dp"
-        android:layout_height="58dp"
-        android:background="@color/design_default_color_primary"
-        android:text="Submit"
-        android:textColor="@color/design_default_color_on_secondary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+
+    <
+
+    <
+
+    <
+
+    <
+
+    <
+
+    <
 
     <RadioButton
         android:id="@+id/radioButton"
@@ -78,7 +78,26 @@
         app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.411" /><![CDATA[
+
+    =======
+        android:id="@+id/button"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_corners"
+        android:onClick="logout"
+        android:text="Logout"
+>>>>>>> f82b616b35e4d29c95bff4750e8bcf2cee7b47f3
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.411" />
+
+
+
+    ]]>
 
     <RadioButton
         android:id="@+id/radioButton2"
@@ -87,14 +106,6 @@
         android:background="@color/purple_500"
         android:text="Medium"
         android:textColor="@color/white"
-=======
-        android:id="@+id/button"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:background="@drawable/rounded_corners"
-        android:onClick="logout"
-        android:text="Logout"
->>>>>>> f82b616b35e4d29c95bff4750e8bcf2cee7b47f3
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -155,6 +166,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.326" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="144dp"
+        android:layout_height="62dp"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.946" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
