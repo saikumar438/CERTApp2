@@ -97,7 +97,7 @@
         app:layout_constraintVertical_bias="0.411" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/et1"
         android:layout_width="325dp"
         android:layout_height="49dp"
         android:ems="10"
@@ -140,6 +140,7 @@
         android:id="@+id/button"
         android:layout_width="144dp"
         android:layout_height="62dp"
+        android:onClick="submit"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

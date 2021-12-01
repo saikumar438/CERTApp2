@@ -50,7 +50,6 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-
         mAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
 
@@ -101,16 +100,19 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
 
     public void register(View view)
     {
+        System.out.println("Out side try method");
         try {
-
+            System.out.println("In try method register");
             String name = etFullName.getText().toString();
+
             String email = etEmail.getText().toString();
             String phoneNumber = etPhoneNumber.getText().toString();
             String password = etPassword.getText().toString();
             String address = etAddress.getText().toString();
-            String qualification = etQualification.getText().toString();
 
+            String qualification = spinner.getSelectedItem().toString();
 
+            System.out.println("inside try method ");
             if(name.isEmpty())
             {
                 etFullName.setError("Please Enter your Full Name");
@@ -155,7 +157,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
                             if (task.isSuccessful()) {
-                                System.out.println("Task is succesful ");
+                                System.out.println("Task is successful ");
                                 User user = new User(name, phoneNumber, email);
                                 String mUid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
                                 FirebaseDatabase.getInstance().getReference("Users")
@@ -164,7 +166,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
-                                            System.out.println("Task is succesful inside");
+                                            System.out.println("Task is successful inside");
                                             userID = mAuth.getCurrentUser().getUid();
                                             DocumentReference documentReference = fStore.collection("user").document(userID);
                                             Map<String,Object> user = new HashMap<>();

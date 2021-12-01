@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class HomeScreen extends AppCompatActivity {
 
     @Override
@@ -19,6 +21,14 @@ public class HomeScreen extends AppCompatActivity {
         System.out.println("button pressed create report");
         Intent intent = new Intent(this,SecondActivity.class);
         startActivity(intent);
+    }
+
+    public void logout(View view)
+    {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+
     }
 
 }

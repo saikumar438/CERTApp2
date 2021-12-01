@@ -1,5 +1,6 @@
 package com.example.certapp;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,10 +9,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.Status;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
@@ -19,16 +23,22 @@ import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.net.ssl.SSLEngineResult;
 
 public class SecondActivity extends AppCompatActivity {
 
+    RadioButton rb1,rb2,rb3;
     EditText editText;
     TextView textView1,textView2;
+    private FirebaseFirestore fStore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +47,7 @@ public class SecondActivity extends AppCompatActivity {
 
         try {
             Intent intent = getIntent();
-
+            fStore = FirebaseFirestore.getInstance();
             editText = findViewById(R.id.edit_text);
 //        textView1 = findViewById(R.id.textView);
             textView2 = findViewById(R.id.text_view2);
@@ -82,12 +92,48 @@ public class SecondActivity extends AppCompatActivity {
         }
     }
 
-    public void logout(View view)
+    public void submit(View view)
     {
-        FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
+        rb1= findViewById(R.id.radioButton);
+        rb2= findViewById(R.id.radioButton2);
+        rb3= findViewById(R.id.radioButton3);
+        editText = findViewById(R.id.et1);
+        String incidentType = editText.getText().toString();
+        String severity;
+        if(rb1.isChecked())
+        {
+            severity = "High";
+        }
+        else if(rb2.isChecked())
+        {
+            severity = "Medium";
+        }
+        else
+        {
+            severity = "Low";
+        }
+        String location = textView2.getText().toString();
+        DocumentReference documentReference = fStore.collection("report").document();
+        Map<String,Object> report = new HashMap<>();
+        report.put("Location",location);
+        report.put("Severity",severity);
+        report.put("Incident Type",incidentType);
+        documentReference.set(report).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()) {
+                    Toast.makeText(SecondActivity.this, "report details saved successfully", Toast.LENGTH_SHORT).show();
+                }else
+                {
+                    Toast.makeText(SecondActivity.this, "Error report details not saved ", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
+        Intent intent = new Intent(this,HomeScreen.class);
+        startActivity(intent);
     }
+
+
 
 }
