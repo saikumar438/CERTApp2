@@ -64,8 +64,9 @@
 
     <Button
         android:id="@+id/register"
-        android:layout_width="343dp"
-        android:layout_height="55dp"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_corners"
         android:onClick="register"
         android:text="Register"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -91,10 +92,12 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#E68C8C"
+        android:layout_width="376dp"
+        android:layout_height="37dp"
+        android:background="#DFF1EF"
+        android:fontFamily="sans-serif-black"
         android:text="Registration Form"
+        android:textAlignment="center"
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,6 +110,8 @@
         android:id="@+id/etQualification"
         android:layout_width="362dp"
         android:layout_height="65dp"
+        android:contentDescription="Select an option"
+        android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

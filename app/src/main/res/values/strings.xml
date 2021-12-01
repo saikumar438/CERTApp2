@@ -7,6 +7,7 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string-array name="qualifications_array">
+        <item>Select an Option</item>
         <item>Doctor</item>
         <item>Volunteer</item>
     </string-array>
