@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CERTApp">
         <activity
+            android:name=".GroupChatActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ChatActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ProfileManagement"
+            android:exported="true" />
+        <activity
             android:name=".HomeScreen"
             android:exported="true" />
         <activity android:name=".SecondActivity" />

@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -42,6 +43,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
     }
     private FirebaseAuth mAuth;
     private FirebaseFirestore fStore;
+    private DatabaseReference RootRef;
     private String userID;
     private EditText etFullName,etEmail,etPhoneNumber,etPassword,etAddress,etQualification;
     private Spinner spinner ;
@@ -51,6 +53,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         setContentView(R.layout.activity_register);
 
         mAuth = FirebaseAuth.getInstance();
+        RootRef = FirebaseDatabase.getInstance().getReference();
         fStore = FirebaseFirestore.getInstance();
 
         etFullName = findViewById(R.id.etName);
@@ -168,6 +171,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                                         if (task.isSuccessful()) {
                                             System.out.println("Task is successful inside");
                                             userID = mAuth.getCurrentUser().getUid();
+                                            RootRef.child("user").child(userID).setValue("");
                                             DocumentReference documentReference = fStore.collection("user").document(userID);
                                             Map<String,Object> user = new HashMap<>();
                                             user.put("FullName",name);

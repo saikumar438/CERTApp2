@@ -1,20 +1,93 @@
 package com.example.certapp;
 
+import androidx.annotation.NavigationRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
-public class HomeScreen extends AppCompatActivity {
+public class HomeScreen extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private DrawerLayout dl;
+    private ActionBarDrawerToggle abdt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
+
+
+        dl=(DrawerLayout)findViewById(R.id.dl);
+        abdt = new ActionBarDrawerToggle(this,dl,R.string.Open,R.string.Close);
+        abdt.setDrawerIndicatorEnabled(true);
+
+        dl.addDrawerListener(abdt);
+        abdt.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        final NavigationView nav_view = (NavigationView) findViewById(R.id.nav_view);
+        nav_view.setNavigationItemSelectedListener(this);
+        nav_view.bringToFront();
+        Log.e("navItem","info "+nav_view.getMenu().getItem(0).getItemId());
+        nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener()
+        {
+
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                int id = item.getItemId();
+                Log.e("Printing Id ", String.valueOf(id));
+                if(id == R.id.myprofile)
+                {
+
+//                    Toast.makeText(HomeScreen.this,"Clicked on MyProfile",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HomeScreen.this, "MyProfile", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(HomeScreen.this,ProfileManagement.class);
+                    startActivity(intent);
+
+                }
+
+                else if(id == R.id.chat)
+                {
+                    Toast.makeText(HomeScreen.this,"Clicked on Chat",Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(HomeScreen.this,ChatActivity.class);
+                    startActivity(intent);
+                }
+                else if(id == R.id.logout)
+                {
+                    Intent intent = new Intent(HomeScreen.this,MainActivity.class);
+                    startActivity(intent);
+
+                }
+                return true;
+            }
+        });
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        return abdt.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
     public void createReport(View view)
@@ -34,4 +107,8 @@ public class HomeScreen extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        return false;
+    }
 }

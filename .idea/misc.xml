@@ -3,11 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/layout/activity_chat.xml" value="0.22" />
+        <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/layout/activity_create_group.xml" value="0.1796875" />
+        <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/layout/activity_group_chat.xml" value="0.22" />
         <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/layout/activity_home_screen.xml" value="0.22" />
         <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/layout/activity_profile_management.xml" value="0.1796875" />
         <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/layout/activity_register.xml" value="0.24375" />
         <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/layout/activity_second.xml" value="0.22" />
         <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/layout/activity_second3.xml" value="0.10144927536231885" />
+        <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/layout/fragment_chats.xml" value="0.1796875" />
+        <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/layout/fragment_contacts.xml" value="0.165625" />
+        <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/layout/fragment_groups.xml" value="0.1796875" />
+        <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/layout/header.xml" value="0.1" />
+        <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/layout/navigation_header.xml" value="0.1796875" />
+        <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/menu/drawer_menu.xml" value="0.1" />
+        <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/menu/navigation_menu.xml" value="0.1796875" />
+        <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/menu/options_menu.xml" value="0.1796875" />
       </map>
     </option>
   </component>
