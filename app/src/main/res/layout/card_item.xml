@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="12dp"
+    app:cardCornerRadius="12dp"
+    android:background="@color/teal_700"
+    android:layout_margin="8dp"
+
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FBFAFA"
+
+        android:padding="15dp"
+        android:id="@+id/itemLayout"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:padding="1dp"
+            android:text="Floods"
+            android:textAlignment="center"
+            android:textColor="#E53935"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/incident_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:padding="1dp"
+            android:text="Category: Thunders"
+            android:textAlignment="viewStart"
+            android:textColor="#E53935"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:id="@+id/severity"
+            android:layout_width="122dp"
+            android:layout_height="23dp"
+            android:fontFamily="sans-serif-medium"
+            android:padding="1dp"
+            android:text="Level: HIGH"
+            android:textColor="#E53935"
+            android:textStyle="bold"
+             />
+
+        <!--            android:textAlignment="viewEnd"-->
+        android:textColor="@color/black" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

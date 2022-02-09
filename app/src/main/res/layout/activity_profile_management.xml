@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D6DBDC"
     tools:context=".ProfileManagement">
 
     <TextView
@@ -81,9 +80,10 @@
         app:layout_constraintVertical_bias="0.792" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/reports"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="reports"
         android:text="Your Reports"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -152,9 +152,10 @@
         app:layout_constraintVertical_bias="0.792" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="back"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

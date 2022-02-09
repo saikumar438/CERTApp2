@@ -14,6 +14,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.certapp.Card.ReportsActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                         if(user.isEmailVerified())
                         {
                             Toast.makeText(MainActivity.this, "User Logged In Successfully", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(MainActivity.this,HomeScreen.class);
+                            Intent intent = new Intent(MainActivity.this, HomeScreen.class);
                                 startActivity(intent);
                         }else
                         {

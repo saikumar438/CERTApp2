@@ -2,6 +2,7 @@
     <string name="app_name">CERTApp</string>
     <string name="Open">CERTApp</string>
     <string name="Close">CERTApp</string>
+    <string name="title_activity_maps">Map</string>
     <string name="title_activity_second">SecondActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -11,11 +12,17 @@
     <string-array name="qualifications_array">
         <item>Select an Option</item>
         <item>Doctor</item>
+        <item>Nurse</item>
         <item>Volunteer</item>
+        <item>EMPT</item>
+        <item>EMR</item>
+        <item>Fire Fighter</item>
+        <item>Law Enforcement(Police)</item>
         <item>Medico</item>
         <item>Fire Fighter</item>
         <item>Paramedic</item>
-        <item>CERT Trained</item>
+        <item>CERT Trainee</item>
+        <item>Others</item>
     </string-array>
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>

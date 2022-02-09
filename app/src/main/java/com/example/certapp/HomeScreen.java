@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.certapp.reports.ReportsMainActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
@@ -93,18 +94,8 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
     public void createReport(View view)
     {
         System.out.println("button pressed create report");
-        Intent intent = new Intent(this,SecondActivity.class);
+        Intent intent = new Intent(this, ReportsMainActivity.class);
         startActivity(intent);
-    }
-
-    public void logout(View view)
-    {
-        Toast.makeText(this, "User logged out successfully", Toast.LENGTH_LONG).show();
-        FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
-
-
     }
 
     @Override

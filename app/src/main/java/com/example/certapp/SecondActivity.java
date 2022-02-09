@@ -5,6 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,12 +25,17 @@ import com.google.android.libraries.places.widget.AutocompleteActivity;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.net.ssl.SSLEngineResult;
@@ -39,19 +46,26 @@ public class SecondActivity extends AppCompatActivity {
     EditText editText;
     TextView textView1,textView2;
     private FirebaseFirestore fStore;
+    private FirebaseAuth mAuth;
+    private String userID,name;
+    //private FirebaseFirestore fStore;
+    private DatabaseReference RootRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
+
         try {
+            mAuth = FirebaseAuth.getInstance();
             Intent intent = getIntent();
             fStore = FirebaseFirestore.getInstance();
             editText = findViewById(R.id.edit_text);
 //        textView1 = findViewById(R.id.textView);
             textView2 = findViewById(R.id.text_view2);
-
+            userID = mAuth.getCurrentUser().getUid();
+            Log.e("Create Report",userID);
             Places.initialize(getApplicationContext(), "AIzaSyAdjioNdUzNH-aApWJfa2PPB6zro6O6LTA");
 
             editText.setFocusable(false);
@@ -64,6 +78,22 @@ public class SecondActivity extends AppCompatActivity {
                     startActivityForResult(intent, 100);
                 }
             });
+
+            DocumentReference documentReference = fStore.collection("user").document(userID);
+            documentReference.addSnapshotListener(SecondActivity.this, new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                    name = documentSnapshot.getString("FullName");
+                    System.out.println("this is system "+name);
+                    Log.e("Name of the user ",name);
+
+                    Toast.makeText(SecondActivity.this, "Current user name "+name, Toast.LENGTH_SHORT).show();
+
+                }
+            });
+
+
+
         }catch (Exception e) {
             Log.e("Address 1 ","This is in catch block address");
         }
@@ -113,16 +143,22 @@ public class SecondActivity extends AppCompatActivity {
             severity = "Low";
         }
         String location = textView2.getText().toString();
+
+
         DocumentReference documentReference = fStore.collection("report").document();
+
         Map<String,Object> report = new HashMap<>();
         report.put("Location",location);
         report.put("Severity",severity);
-        report.put("Incident Type",incidentType);
+        report.put("Incident_Type",incidentType);
+        report.put("User",name);
+
         documentReference.set(report).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if(task.isSuccessful()) {
                     Toast.makeText(SecondActivity.this, "report details saved successfully", Toast.LENGTH_SHORT).show();
+                    Log.e("Create Report",userID);
                 }else
                 {
                     Toast.makeText(SecondActivity.this, "Error report details not saved ", Toast.LENGTH_SHORT).show();
@@ -132,6 +168,7 @@ public class SecondActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this,HomeScreen.class);
         startActivity(intent);
+
     }
 
 

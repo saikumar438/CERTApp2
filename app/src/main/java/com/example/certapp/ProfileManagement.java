@@ -3,10 +3,13 @@ package com.example.certapp;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
+import com.example.certapp.Card.ReportsActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -47,6 +50,18 @@ public class ProfileManagement extends AppCompatActivity {
                 phoneNumber.setText(documentSnapshot.getString("PhoneNumber"));
             }
         });
+    }
+
+    public void back(View view)
+    {
+        Intent intent = new Intent(ProfileManagement.this,HomeScreen.class);
+        startActivity(intent);
+    }
+
+    public void reports(View view)
+    {
+        Intent intent = new Intent(ProfileManagement.this, ReportsActivity.class);
+        startActivity(intent);
     }
 
 
