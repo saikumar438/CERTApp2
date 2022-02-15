@@ -2,42 +2,163 @@ package com.example.certapp.Card;
 
 public class ReportModel {
 
-    private String User;
-    private String Severity;
-    private String Incident_Type;
+    private String userName;
+    private String title;
+    private String timedate;
+    private String location;
+    private String description;
+    private String typeOfIncident;
+    private String impactLevel;
+    private String structuralDamageImpact;
+    private String red;
+    private String green;
+    private String yellow;
+    private String black;
+    private String hazmatType;
+    private String incidentId;
+    private String notes;
 
     public ReportModel(){
 
     }
 
-    public ReportModel(String user, String severity, String incident_Type) {
-        User = user;
-        Severity = severity;
-        Incident_Type = incident_Type;
+    public ReportModel(String userName, String title, String timedate, String location, String description, String typeOfIncident, String impactLevel, String structuralDamageImpact, String red, String green,
+                       String yellow, String black, String hazmatType, String incidentId, String notes) {
+        this.userName = userName;
+        this.title = title;
+        this.timedate = timedate;
+        this.location = location;
+        this.description = description;
+        this.typeOfIncident = typeOfIncident;
+        this.impactLevel = impactLevel;
+        this.structuralDamageImpact = structuralDamageImpact;
+        this.red = red;
+        this.green = green;
+        this.yellow = yellow;
+        this.black = black;
+        this.hazmatType = hazmatType;
+        this.incidentId = incidentId;
+        this.notes = notes;
     }
 
-    public String getUser() {
-        return User;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUser(String user) {
-        User = user;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public String getSeverity() {
-        return Severity;
+    public String getTitle() {
+        return title;
     }
 
-    public void setSeverity(String severity) {
-        Severity = severity;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getIncident_Type() {
-        return Incident_Type;
+    public String getTimedate() {
+        return timedate;
     }
 
-    public void setIncident_Type(String incident_Type) {
-        Incident_Type = incident_Type;
+    public void setTimedate(String timedate) {
+        this.timedate = timedate;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getTypeOfIncident() {
+        return typeOfIncident;
+    }
+
+    public void setTypeOfIncident(String typeOfIncident) {
+        this.typeOfIncident = typeOfIncident;
+    }
+
+    public String getImpactLevel() {
+        return impactLevel;
+    }
+
+    public void setImpactLevel(String impactLevel) {
+        this.impactLevel = impactLevel;
+    }
+
+    public String getStructuralDamageImpact() {
+        return structuralDamageImpact;
+    }
+
+    public void setStructuralDamageImpact(String structuralDamageImpact) {
+        this.structuralDamageImpact = structuralDamageImpact;
+    }
+
+    public String getRed() {
+        return red;
+    }
+
+    public void setRed(String red) {
+        this.red = red;
+    }
+
+    public String getGreen() {
+        return green;
+    }
+
+    public void setGreen(String green) {
+        this.green = green;
+    }
+
+    public String getYellow() {
+        return yellow;
+    }
+
+    public void setYellow(String yellow) {
+        this.yellow = yellow;
+    }
+
+    public String getBlack() {
+        return black;
+    }
+
+    public void setBlack(String black) {
+        this.black = black;
+    }
+
+    public String getHazmatType() {
+        return hazmatType;
+    }
+
+    public void setHazmatType(String hazmatType) {
+        this.hazmatType = hazmatType;
+    }
+
+    public String getIncidentId() {
+        return incidentId;
+    }
+
+    public void setIncidentId(String incidentId) {
+        this.incidentId = incidentId;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }
 

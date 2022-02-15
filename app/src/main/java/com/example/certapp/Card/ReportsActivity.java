@@ -48,7 +48,7 @@ public class ReportsActivity extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
-        database = FirebaseDatabase.getInstance().getReference("report");
+        database = FirebaseDatabase.getInstance().getReference("reportsDB");
         initializeCardView();
     }
 
@@ -62,7 +62,7 @@ public class ReportsActivity extends AppCompatActivity {
         reportsAdapter.setOnItemClickListener(new ClickListener<ReportModel>(){
             @Override
             public void onClick(View view, ReportModel data, int position) {
-                Toast.makeText(getApplicationContext(),"Position = "+position+"\n Item = "+data.getUser(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Position = "+position+"\n Item = "+data.getUserName(),Toast.LENGTH_SHORT).show();
             }
         });
         createDataForCards();
@@ -72,7 +72,7 @@ public class ReportsActivity extends AppCompatActivity {
     private void createDataForCards(){
 
 
-        fStore.collection("report").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        fStore.collection("reportsDB").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
@@ -80,11 +80,22 @@ public class ReportsActivity extends AppCompatActivity {
                         Log.e("TAG", document.getId() + " => " + document.getData());
                         System.out.println("The user value is :"+document.getString("User"));
                         ReportModel r=new ReportModel();
-            r.setUser(document.getString("User"));
-
-            r.setIncident_Type(document.getString("Incident Type"));
-            r.setSeverity(document.getString("Severity"));
-            reportsArrayList.add(r);
+                        r.setUserName(document.getString("userName"));
+                        r.setTitle(document.getString("title"));
+                        r.setTimedate(document.getString("timedate"));
+                        r.setLocation(document.getString("location"));
+                        r.setDescription(document.getString("description"));
+                        r.setTypeOfIncident(document.getString("typeOfIncident"));
+                        r.setImpactLevel(document.getString("impactLevel"));
+                        r.setStructuralDamageImpact(document.getString("structuralDamageImpact"));
+                        r.setRed(document.getString("red"));
+                        r.setGreen(document.getString("green"));
+                        r.setYellow(document.getString("yellow"));
+                        r.setBlack(document.getString("black"));
+                        r.setHazmatType(document.getString("hazmatType"));
+                        r.setIncidentId(document.getString("incidentId"));
+                        r.setNotes(document.getString("notes"));
+                        reportsArrayList.add(r);
                         reportsAdapter.notifyDataSetChanged();
                     }
                 } else {

@@ -53,6 +53,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 public class ReportsMainActivity extends AppCompatActivity {
     public static final int TASK_REQ = 1;
@@ -128,16 +129,15 @@ public class ReportsMainActivity extends AppCompatActivity {
         MaterialBetterSpinner betterSpinner1 = findViewById(R.id.spinner);
         betterSpinner1.setAdapter(arrayAdapter1);
 
-        DocumentReference documentReference = fStore.collection("user").document(userID);
+        DocumentReference documentReference = fStore.collection("usersDB").document(userID);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
-                name = documentSnapshot.getString("FullName");
-                System.out.println("this is system "+name);
+                name = documentSnapshot.getString("firstName");
+//                System.out.println("this is system "+name);
                 Log.e("Name of the user ",name);
 
                 Toast.makeText(ReportsMainActivity.this, "Current user name "+name, Toast.LENGTH_SHORT).show();
-
             }
         });
     }
@@ -145,7 +145,7 @@ public class ReportsMainActivity extends AppCompatActivity {
     public void onSubmit(View v) {
         try {
 
-            DocumentReference documentReference = fStore.collection("report").document();
+            DocumentReference documentReference = fStore.collection("reportsDB").document();
 
             Map<String, Object> jsonBody = new HashMap<>();
 //            jsonBody.put("Location",location);
@@ -154,9 +154,11 @@ public class ReportsMainActivity extends AppCompatActivity {
 //            jsonBody.put("User",name);
 
 //            RequestQueue requestQueue = Volley.newRequestQueue(this);
-
+            Random rnd = new Random();
+            int incID = 143 + rnd.nextInt(9999) + this.title.getText().toString().length();
 //            JSONObject jsonBody = new JSONObject();
             jsonBody.put("title", this.title.getText().toString());
+            jsonBody.put("userName", name);
             // Toast.makeText(getApplicationContext(),this.pwd.getText().toString()+"",Toast.LENGTH_SHORT).show();
             jsonBody.put("timeDate", datetime.getText().toString());
             //jsonBody.put("timeDate", dateTV.getText().toString()+" "+timeTV.getText().toString());
@@ -170,7 +172,7 @@ public class ReportsMainActivity extends AppCompatActivity {
             jsonBody.put("yellow", this.yellowCount.getText().toString());
             jsonBody.put("black", this.blackCount.getText().toString());
             jsonBody.put("hazmatType", this.Hazmat.getText().toString());
-            jsonBody.put("incidentId", IncidentListAdapter.incidentId);
+            jsonBody.put("incidentId", "INC"+incID);
             jsonBody.put("notes", this.Notes.getText().toString());
 
             documentReference.set(jsonBody).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -246,7 +248,7 @@ public class ReportsMainActivity extends AppCompatActivity {
 //        }
         }
         catch (Exception e){
-         e.printStackTrace();
+            e.printStackTrace();
         }
     }
 
@@ -258,7 +260,7 @@ public class ReportsMainActivity extends AppCompatActivity {
 
     public void getDisasterType(View v) {
         Intent disaster_ini = new Intent(this, ImagesActivity.class);
-         startActivityForResult(disaster_ini, TASK_REQ);
+        startActivityForResult(disaster_ini, TASK_REQ);
     }
 
     public void selectImagesAction(View v){

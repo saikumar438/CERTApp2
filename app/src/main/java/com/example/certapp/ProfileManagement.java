@@ -38,11 +38,11 @@ public class ProfileManagement extends AppCompatActivity {
         userId = fAuth.getCurrentUser().getUid();
         Log.e("User ID ",userId);
 
-        DocumentReference documentReference = fStore.collection("user").document(userId);
+        DocumentReference documentReference = fStore.collection("usersDB").document(userId);
         documentReference.addSnapshotListener(ProfileManagement.this, new EventListener<DocumentSnapshot>() {
             @Override
                 public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
-                fName.setText(documentSnapshot.getString("FullName"));
+                fName.setText(documentSnapshot.getString("firstName"));
                 System.out.println("this is system "+fName.getText());
                 email.setText(documentSnapshot.getString("Email"));
                 qualification.setText(documentSnapshot.getString("Qualification"));

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -24,6 +25,13 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+    EditText etEmail;
+    EditText etPassword;
+    TextView textView4;
+    SharedPreferences preferences;
+    private static final String SHARED_PREF_NAME = "mypref";
+    private static final String KEY_EMAIL = "email";
+    private static final String KEY_PASSWORD = "password";
 
 
     @Override
@@ -31,20 +39,35 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        etEmail = findViewById(R.id.etLoginEmail);
+        etPassword = findViewById(R.id.etLoginPassword);
+        textView4  = findViewById(R.id.tv4);
+        preferences = getSharedPreferences(SHARED_PREF_NAME,MODE_PRIVATE);
+
+
         mAuth = FirebaseAuth.getInstance();
+
+        String email = preferences.getString(KEY_EMAIL,null);
+        String password = preferences.getString(KEY_PASSWORD,null);
+
+        if(email != null)
+        {
+            etEmail.setText(email);
+            etPassword.setText(password);
+        }
     }
 
     public void login(View view)
     {
         Log.d("login button","In  login method");
         try {
-            EditText etEmail = findViewById(R.id.etLoginEmail);
-            EditText etPassword = findViewById(R.id.etLoginPassword);
-            TextView textView4 = findViewById(R.id.tv4);
+
 
 
             String email = etEmail.getText().toString();
             String password = etPassword.getText().toString();
+
+
 
             if(email.isEmpty())
             {
@@ -58,6 +81,11 @@ public class MainActivity extends AppCompatActivity {
             {
                 etPassword.setError("Please Enter a password");
             }
+
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString(KEY_EMAIL,email);
+            editor.putString(KEY_PASSWORD,password);
+            editor.apply();
 
             mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override

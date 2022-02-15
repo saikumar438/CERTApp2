@@ -161,24 +161,34 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
 
                             if (task.isSuccessful()) {
                                 System.out.println("Task is successful ");
-                                User user = new User(name, phoneNumber, email);
+                                User user1 = new User("Saikumar","Mylavarapu",qualification,"6605281481","Maryville","Missouri","1215 w 16th street ","64468","1231231231","none","01/15/2022","sainallapati55@gmail.com");
                                 String mUid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
-                                FirebaseDatabase.getInstance().getReference("Users")
+                                FirebaseDatabase.getInstance().getReference("usersDB")
                                         .child(mUid)
-                                        .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        .setValue(user1).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
                                             System.out.println("Task is successful inside");
                                             userID = mAuth.getCurrentUser().getUid();
                                             RootRef.child("user").child(userID).setValue("");
-                                            DocumentReference documentReference = fStore.collection("user").document(userID);
+                                            DocumentReference documentReference = fStore.collection("usersDB").document(userID);
                                             Map<String,Object> user = new HashMap<>();
-                                            user.put("FullName",name);
-                                            user.put("Email",email);
-                                            user.put("PhoneNumber",phoneNumber);
-                                            user.put("Address",address);
-                                            user.put("Qualification",qualification);
+                                            user.put("firstName",user1.getFirstName());
+                                            user.put("lastName",user1.getLastName());
+                                            user.put("emailAddress",user1.getEmailAddress());
+                                            user.put("contactNumber",user1.getContactNumber());
+                                            user.put("city",user1.getCity());
+                                            user.put("state",user1.getState());
+                                            user.put("streetAddress",user1.getStreetAddress());
+                                            user.put("zipCode",user1.getZipCode());
+                                            user.put("verifyPassword",user1.getVerifyPassword());
+                                            user.put("others",user1.getOthers());
+                                            user.put("createdAt",user1.getCreatedAt());
+                                            user.put("password","1231231231");
+
+
+                                            user.put("qualification",user1.getQualification());
                                             documentReference.set(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {

@@ -1,63 +1,41 @@
 {
   "project_info": {
-    "project_number": "108291993162",
-    "project_id": "authentication-69154",
-    "storage_bucket": "authentication-69154.appspot.com"
+    "project_number": "1074017436504",
+    "project_id": "cert-db",
+    "storage_bucket": "cert-db.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:108291993162:android:30ff7c95fa6b16be7c00b3",
+        "mobilesdk_app_id": "1:1074017436504:android:6ea19637b2b31a0c7e9b2d",
         "android_client_info": {
           "package_name": "com.example.certapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "108291993162-4qqfosmb066uitsk942pgp224peg6f7t.apps.googleusercontent.com",
+          "client_id": "1074017436504-965v6050eja6dd6ji0lk29asor09poi6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDoySdujTySnSy-vBbH1g5FByWM8WzI6FY"
+          "current_key": "AIzaSyDCsTZHxm62B-h9wqYr0Lks2vmsy1OPWm0"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "108291993162-4qqfosmb066uitsk942pgp224peg6f7t.apps.googleusercontent.com",
+              "client_id": "1074017436504-965v6050eja6dd6ji0lk29asor09poi6.apps.googleusercontent.com",
               "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:108291993162:android:155849ead83fe2997c00b3",
-        "android_client_info": {
-          "package_name": "com.precisesolutions.Certapp"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "108291993162-4qqfosmb066uitsk942pgp224peg6f7t.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDoySdujTySnSy-vBbH1g5FByWM8WzI6FY"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
+            },
             {
-              "client_id": "108291993162-4qqfosmb066uitsk942pgp224peg6f7t.apps.googleusercontent.com",
-              "client_type": 3
+              "client_id": "1074017436504-sr4oulto0qee3dkfftmdk475so28sava.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "GDP.CERT"
+              }
             }
           ]
         }

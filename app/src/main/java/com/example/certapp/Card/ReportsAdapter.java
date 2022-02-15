@@ -59,24 +59,31 @@ public class ReportsAdapter extends RecyclerView.Adapter<ReportsAdapter.ReportHo
     }
 
     class ReportHolder2 extends RecyclerView.ViewHolder{
-        private TextView reportName,incidentlvl,category;
+        private TextView title,impact,userName,description,incidentType,effected;
         private LinearLayout itemLayout;
 
 
         ReportHolder2(View itemView){
             super(itemView);
-            reportName=itemView.findViewById(R.id.user);
-            incidentlvl=itemView.findViewById(R.id.severity);
-            category=itemView.findViewById(R.id.incident_type);
+            userName=itemView.findViewById(R.id.currentUser);
+            title=itemView.findViewById(R.id.reportName);
+            impact=itemView.findViewById(R.id.impact);
+            incidentType=itemView.findViewById(R.id.incidentType);
+            description=itemView.findViewById(R.id.description);
+            effected=itemView.findViewById(R.id.effected);
             itemLayout =  itemView.findViewById(R.id.itemLayout);
 
 
         }
 
         void setDetails(ReportModel report){
-            reportName.setText(report.getUser());
-            incidentlvl.setText(report.getSeverity());
-            category.setText(report.getIncident_Type());
+            userName.setText(report.getUserName());
+            impact.setText(report.getImpactLevel());
+            title.setText(report.getTitle());
+            incidentType.setText(report.getTypeOfIncident());
+            description.setText(report.getDescription());
+            int red = Integer.parseInt(report.getRed()) + Integer.parseInt(report.getBlack()) + Integer.parseInt(report.getYellow()) + Integer.parseInt(report.getGreen());
+            effected.setText((String.valueOf(red)));
         }
 
 

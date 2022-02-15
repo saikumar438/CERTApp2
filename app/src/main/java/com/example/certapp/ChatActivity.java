@@ -58,16 +58,16 @@ public class ChatActivity extends AppCompatActivity {
         userID = mAuth.getCurrentUser().getUid();
         Log.e("User ID ",userID);
 
-        DocumentReference documentReference = fStore.collection("user").document(userID);
-        documentReference.addSnapshotListener(ChatActivity.this, new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
-                String name = documentSnapshot.getString("FullName");
-                System.out.println("this is system "+name);
-                Log.e("Name of the user ",name);
-
-            }
-        });
+//        DocumentReference documentReference = fStore.collection("user").document(userID);
+//        documentReference.addSnapshotListener(ChatActivity.this, new EventListener<DocumentSnapshot>() {
+//            @Override
+//            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+//                String name = documentSnapshot.getString("FullName");
+//                System.out.println("this is system "+name);
+//                Log.e("Name of the user ",name);
+//
+//            }
+//        });
 
     }
 

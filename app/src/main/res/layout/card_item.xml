@@ -11,48 +11,176 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
+        android:id="@+id/itemLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         android:background="#FBFAFA"
+        android:orientation="vertical"
+        android:padding="15dp">
 
-        android:padding="15dp"
-        android:id="@+id/itemLayout"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/user"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-medium"
-            android:padding="1dp"
-            android:text="Floods"
-            android:textAlignment="center"
-            android:textColor="#E53935"
-            android:textStyle="bold"
-            />
+            android:orientation="horizontal"
+            android:padding="0dp"
+            android:layout_margin="0dp"
+            >
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-medium"
+                android:padding="1dp"
+                android:text="Name Of the Report: "
+                android:textAlignment="viewStart"
+                android:textColor="#E53935"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/reportName"
+                android:layout_width="216dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:padding="1dp"
+                android:text="Fire Accident At Factory"
+                android:textAlignment="viewStart"
+                android:textColor="#E53935"
+                android:textStyle="normal" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="0dp"
+            android:layout_margin="0dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="sans-serif-medium"
+                android:padding="1dp"
+                android:text="Incident Type: "
+                android:textAlignment="viewStart"
+                android:textColor="#E53935"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/incidentType"
+                android:layout_width="216dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:padding="1dp"
+                android:text="Thunders"
+                android:textAlignment="viewStart"
+                android:textColor="#E53935"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="0dp"
+
+            android:layout_margin="0dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-medium"
+                    android:padding="1dp"
+                    android:text="Impact: "
+                    android:textAlignment="viewStart"
+                    android:textColor="#E53935"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/impact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:padding="1dp"
+                    android:text="Low"
+
+                    android:textAlignment="viewStart"
+                    android:textColor="#E53935"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="sans-serif-medium"
+                        android:padding="1dp"
+                        android:text="Effected People:"
+                        android:textAlignment="viewEnd"
+                        android:textColor="#E53935"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:id="@+id/effected"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-medium"
+                        android:padding="1dp"
+                        android:text="50"
+                        android:textAlignment="viewStart"
+                        android:textColor="#E53935"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-medium"
+                    android:padding="1dp"
+                    android:text="createdBy: "
+                    android:textAlignment="viewStart"
+                    android:textColor="#E53935"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/currentUser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:padding="1dp"
+                    android:text="Jeevan Bodigam"
+                    android:textAlignment="viewStart"
+                    android:textColor="#E53935"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
         <TextView
-            android:id="@+id/incident_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Info: "/>
+        <TextView
+            android:id="@+id/description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
-            android:padding="1dp"
-            android:text="Category: Thunders"
+            android:padding="3dp"
+            android:lines="5"
+            android:text="Spring framework helps programmers developing Java web and enterprise applications easily and following best practices.Spring provides a rich set of APIs built on top of
+             Java Servlet, JDBC, transaction, webservices,..."
             android:textAlignment="viewStart"
             android:textColor="#E53935"
-            android:textStyle="bold"
-            />
-
-        <TextView
-            android:id="@+id/severity"
-            android:layout_width="122dp"
-            android:layout_height="23dp"
-            android:fontFamily="sans-serif-medium"
-            android:padding="1dp"
-            android:text="Level: HIGH"
-            android:textColor="#E53935"
-            android:textStyle="bold"
-             />
+            android:textStyle="normal" />
 
         <!--            android:textAlignment="viewEnd"-->
         android:textColor="@color/black" />
