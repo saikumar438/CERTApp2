@@ -171,7 +171,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                                         if (task.isSuccessful()) {
                                             System.out.println("Task is successful inside");
                                             userID = mAuth.getCurrentUser().getUid();
-                                            RootRef.child("user").child(userID).setValue("");
+                                            RootRef.child("usersDB").child(userID).setValue("");
                                             DocumentReference documentReference = fStore.collection("usersDB").document(userID);
                                             Map<String,Object> user = new HashMap<>();
                                             user.put("firstName",user1.getFirstName());

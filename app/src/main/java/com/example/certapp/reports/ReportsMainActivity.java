@@ -160,7 +160,7 @@ public class ReportsMainActivity extends AppCompatActivity {
             jsonBody.put("title", this.title.getText().toString());
             jsonBody.put("userName", name);
             // Toast.makeText(getApplicationContext(),this.pwd.getText().toString()+"",Toast.LENGTH_SHORT).show();
-            jsonBody.put("timeDate", datetime.getText().toString());
+            jsonBody.put("timedate", datetime.getText().toString());
             //jsonBody.put("timeDate", dateTV.getText().toString()+" "+timeTV.getText().toString());
             jsonBody.put("location", "maryville");
             jsonBody.put("description", this.description.getText().toString());
