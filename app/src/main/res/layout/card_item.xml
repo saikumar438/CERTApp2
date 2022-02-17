@@ -5,7 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:elevation="12dp"
     app:cardCornerRadius="12dp"
-    android:background="@color/teal_700"
+    app:cardUseCompatPadding="true"
+    android:background="#5A4D6E"
     android:layout_margin="8dp"
 
     android:layout_height="wrap_content">
@@ -14,10 +15,18 @@
         android:id="@+id/itemLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
 
-        android:background="#FBFAFA"
+        android:background="#5A8882"
         android:orientation="vertical"
         android:padding="15dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Emergency Report"
+            android:textColor="#E91E63"
+            android:textAlignment="center"
+            android:textSize="20dp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,7 +43,7 @@
                 android:padding="1dp"
                 android:text="Name Of the Report: "
                 android:textAlignment="viewStart"
-                android:textColor="#E53935"
+                android:textColor="#0F0F10"
                 android:textStyle="normal" />
 
             <TextView
@@ -45,7 +54,7 @@
                 android:padding="1dp"
                 android:text="Fire Accident At Factory"
                 android:textAlignment="viewStart"
-                android:textColor="#E53935"
+                android:textColor="#EFF0F4"
                 android:textStyle="normal" />
         </LinearLayout>
         <LinearLayout
@@ -63,7 +72,7 @@
                 android:padding="1dp"
                 android:text="Incident Type: "
                 android:textAlignment="viewStart"
-                android:textColor="#E53935"
+                android:textColor="#0E0E0E"
                 android:textStyle="normal" />
 
             <TextView
@@ -74,7 +83,7 @@
                 android:padding="1dp"
                 android:text="Thunders"
                 android:textAlignment="viewStart"
-                android:textColor="#E53935"
+                android:textColor="#EAEBF1"
                 android:textStyle="bold" />
         </LinearLayout>
         <LinearLayout
@@ -97,7 +106,7 @@
                     android:padding="1dp"
                     android:text="Impact: "
                     android:textAlignment="viewStart"
-                    android:textColor="#E53935"
+                    android:textColor="#161617"
                     android:textStyle="normal" />
 
                 <TextView
@@ -109,7 +118,7 @@
                     android:text="Low"
 
                     android:textAlignment="viewStart"
-                    android:textColor="#E53935"
+                    android:textColor="#EDEDEF"
                     android:textStyle="bold" />
 
                 <LinearLayout
@@ -125,7 +134,7 @@
                         android:padding="1dp"
                         android:text="Effected People:"
                         android:textAlignment="viewEnd"
-                        android:textColor="#E53935"
+                        android:textColor="#101010"
                         android:textStyle="normal" />
 
                     <TextView
@@ -136,7 +145,7 @@
                         android:padding="1dp"
                         android:text="50"
                         android:textAlignment="viewStart"
-                        android:textColor="#E53935"
+                        android:textColor="#F1F2F8"
                         android:textStyle="bold" />
                 </LinearLayout>
             </LinearLayout>
@@ -150,7 +159,7 @@
                     android:padding="1dp"
                     android:text="createdBy: "
                     android:textAlignment="viewStart"
-                    android:textColor="#E53935"
+                    android:textColor="#0A0B0B"
                     android:textStyle="normal" />
 
                 <TextView
@@ -159,16 +168,41 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="sans-serif-medium"
                     android:padding="1dp"
-                    android:text="Jeevan Bodigam"
+                    android:text="Sai Nallapati"
                     android:textAlignment="viewStart"
-                    android:textColor="#E53935"
+                    android:textColor="#EFF0F4"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="sans-serif-medium"
+                    android:padding="1dp"
+                    android:text="Address: "
+                    android:textAlignment="viewStart"
+                    android:textColor="#0C0C0C"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:id="@+id/address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:padding="1dp"
+                    android:text="1215 W 16th Street,Maryville,MO,64468 "
+                    android:textAlignment="viewStart"
+                    android:textColor="#F3F4F8"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Info: "/>
+            android:text="Info: "
+            android:textColor="#131315"/>
         <TextView
             android:id="@+id/description"
             android:layout_width="wrap_content"
@@ -176,10 +210,9 @@
             android:fontFamily="sans-serif-medium"
             android:padding="3dp"
             android:lines="5"
-            android:text="Spring framework helps programmers developing Java web and enterprise applications easily and following best practices.Spring provides a rich set of APIs built on top of
-             Java Servlet, JDBC, transaction, webservices,..."
+            android:text="Fire safety on construction sites has been rarely studied because fire accidents have a lower occurrence compared to construction’s “Fatal Four”. Despite the lower occurrence, construction fire accidents tend to have a larger severity of impact"
             android:textAlignment="viewStart"
-            android:textColor="#E53935"
+            android:textColor="#F6F6FA"
             android:textStyle="normal" />
 
         <!--            android:textAlignment="viewEnd"-->
