@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -136,7 +137,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mLongitudeTextView.setText(String.valueOf(location.getLongitude() ));
         loc.add(location.getLatitude());
         loc.add(location.getLongitude());
-        TextView locNametextview=findViewById(R.id.locNametextview);
+        TextView address=findViewById(R.id.locNametextview);
+
         LatLng currentlocation = new LatLng(loc.get(0),loc.get(1));
         String provider = locationManager.getBestProvider(new Criteria(), true);
         if (ActivityCompat.checkSelfPermission(this,
@@ -156,13 +158,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 List<Address> addresses = geocoder.getFromLocation(latitude,
                         longitude, 1);
                 if (null != addresses && addresses.size() > 0) {
-                    finalLoc=addresses.get(0).getFeatureName() + ", " +
-                            addresses.get(0).getLocality() +", " + addresses.get(0).getAdminArea() + ", " +
-                            addresses.get(0).getCountryName();
-                    state=addresses.get(0).getAdminArea();
-                    locNametextview.setText(addresses.get(0).getFeatureName() + ", " +
-                            addresses.get(0).getLocality() +", " + addresses.get(0).getAdminArea() + ", " +
-                            addresses.get(0).getCountryName());
+                    finalLoc=addresses.get(0).getAddressLine(0)+","+
+                            addresses.get(0).getAdminArea() + "," +
+                           latitude+","+longitude+","+addresses.get(0).getPostalCode();
+                    address.setText(finalLoc);
+                    Log.e("address",finalLoc);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -229,7 +229,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     public void backToIncidentReport(View v){
         Intent in = new Intent();
-        in.putExtra("LocationName",finalLoc);
+        in.putExtra("locationDetails",finalLoc);
         setResult(11,in);
 
         finish();

@@ -2,6 +2,7 @@ package com.example.certapp.reports;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -9,6 +10,7 @@ import android.content.ClipData;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -37,6 +39,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -63,6 +68,8 @@ public class ReportsMainActivity extends AppCompatActivity {
 
     String[] ImpactLevel1={"Low","Medium","High"};
 
+    String[] hazmats = {"Solid","gas","Chemical","Oil Spill","Electricity","None"};
+
     int PICK_IMAGE_MULTIPLE_1 = 1;
     String imageEncoded1;
     List<String> imagesEncodedList1;
@@ -71,7 +78,6 @@ public class ReportsMainActivity extends AppCompatActivity {
     static String token;
     EditText title;
     EditText datetime;
-    TextView location;
     EditText description;
     EditText type;
     MaterialBetterSpinner impact;
@@ -80,9 +86,12 @@ public class ReportsMainActivity extends AppCompatActivity {
     EditText greenCount;
     EditText yellowCount;
     EditText blackCount;
-    EditText Hazmat;
+    MaterialBetterSpinner Hazmat;
     EditText Notes;
     String dateStr, timeStr;
+    EditText address;
+    EditText state;
+    EditText zipCode;
     TextView dateTV;
     TextView timeTV;
 
@@ -98,7 +107,9 @@ public class ReportsMainActivity extends AppCompatActivity {
 
         title = findViewById(R.id.titleofreport);
         datetime = findViewById(R.id.dateandtime);
-        location = findViewById(R.id.location);
+        address = findViewById(R.id.address);
+        state = findViewById(R.id.state);
+        zipCode = findViewById(R.id.zipCode);
         description = findViewById(R.id.description);
         type = findViewById(R.id.Type2);
         impact = findViewById(R.id.spinner1);
@@ -107,7 +118,7 @@ public class ReportsMainActivity extends AppCompatActivity {
         greenCount = findViewById(R.id.Count2);
         yellowCount = findViewById(R.id.Count3);
         blackCount = findViewById(R.id.Count4);
-        Hazmat = findViewById(R.id.Hazmat);
+        Hazmat = findViewById(R.id.hazmatType);
         Notes = findViewById(R.id.Notes);
         //datetime.setText(dateStr+" "+timeStr);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, ImpactLevel);
@@ -117,6 +128,10 @@ public class ReportsMainActivity extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, ImpactLevel1);
         MaterialBetterSpinner betterSpinner1 = findViewById(R.id.spinner);
         betterSpinner1.setAdapter(arrayAdapter1);
+
+        ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, hazmats);
+        MaterialBetterSpinner betterSpinner2 = findViewById(R.id.hazmatType);
+        betterSpinner2.setAdapter(arrayAdapter2);
 
         DocumentReference documentReference = fStore.collection("usersDB").document(userID);
 //        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
@@ -131,9 +146,13 @@ public class ReportsMainActivity extends AppCompatActivity {
 //        });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void onSubmit(View v) {
         try {
-
+            Intent resu=getIntent();
+            String details=resu.getStringExtra("locationDetails");
+            String[] detailsArr=details.split(",");
+            System.out.println(details);
             DocumentReference documentReference = fStore.collection("reportsDB").document();
 
             Map<String, Object> jsonBody = new HashMap<>();
@@ -141,7 +160,8 @@ public class ReportsMainActivity extends AppCompatActivity {
 //            jsonBody.put("Severity",severity);
 //            jsonBody.put("Incident_Type",incidentType);
 //            jsonBody.put("User",name);
-
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+            LocalDateTime now = LocalDateTime.now();
 //            RequestQueue requestQueue = Volley.newRequestQueue(this);
             Random rnd = new Random();
             int incID = 143 + rnd.nextInt(9999) + this.title.getText().toString().length();
@@ -150,8 +170,12 @@ public class ReportsMainActivity extends AppCompatActivity {
             jsonBody.put("userName", name);
             // Toast.makeText(getApplicationContext(),this.pwd.getText().toString()+"",Toast.LENGTH_SHORT).show();
             jsonBody.put("timedate", datetime.getText().toString());
-            //jsonBody.put("timeDate", dateTV.getText().toString()+" "+timeTV.getText().toString());
-            jsonBody.put("location", "maryville");
+            jsonBody.put("updatedAt", dtf.format(now));
+            jsonBody.put("address", detailsArr[0]+detailsArr[1]);
+            jsonBody.put("state",detailsArr[4]);
+            jsonBody.put("zipCode",detailsArr[7]);
+            jsonBody.put("latitude",detailsArr[5]);
+            jsonBody.put("longitude",detailsArr[6]);
             jsonBody.put("description", this.description.getText().toString());
             jsonBody.put("typeOfIncident", this.type.getText().toString());
             jsonBody.put("impactLevel", String.valueOf(impact.getText().toString()));
@@ -160,7 +184,7 @@ public class ReportsMainActivity extends AppCompatActivity {
             jsonBody.put("green", this.greenCount.getText().toString());
             jsonBody.put("yellow", this.yellowCount.getText().toString());
             jsonBody.put("black", this.blackCount.getText().toString());
-            jsonBody.put("hazmatType", this.Hazmat.getText().toString());
+            jsonBody.put("hazmatType", String.valueOf(Hazmat.getText().toString()));
             jsonBody.put("incidentId", "INC"+incID);
             jsonBody.put("notes", this.Notes.getText().toString());
 
@@ -245,6 +269,7 @@ public class ReportsMainActivity extends AppCompatActivity {
     public void getLocationAction(View v) {
         Intent intent = new Intent(ReportsMainActivity.this, MapsActivity.class);
         startActivityForResult(intent, 11);
+
     }
 
     public void getDisasterType(View v) {
@@ -362,9 +387,12 @@ public class ReportsMainActivity extends AppCompatActivity {
         }
         if (requestCode == 11) {
             if (resultCode == 11) {
-                String str = disasterInt.getStringExtra("LocationName");
-                TextView incidentLocTV = findViewById(R.id.location);
-                incidentLocTV.setText(str);
+                String str = disasterInt.getStringExtra("locationDetails");
+                String[] detailsArr=str.split(",");
+                address.setText(detailsArr[0]+detailsArr[1]);
+
+                state.setText(detailsArr[4]);
+                zipCode.setText(detailsArr[7]);
             }
         }
     }
