@@ -2,6 +2,7 @@ package com.example.certapp.reports;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -9,6 +10,7 @@ import android.content.ClipData;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -22,17 +24,9 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.certapp.HomeScreen;
 import com.example.certapp.MapsActivity;
 import com.example.certapp.R;
-import com.example.certapp.SecondActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -45,9 +39,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -74,6 +68,8 @@ public class ReportsMainActivity extends AppCompatActivity {
 
     String[] ImpactLevel1={"Low","Medium","High"};
 
+    String[] hazmats = {"Solid","gas","Chemical","Oil Spill","Electricity","None"};
+
     int PICK_IMAGE_MULTIPLE_1 = 1;
     String imageEncoded1;
     List<String> imagesEncodedList1;
@@ -82,7 +78,6 @@ public class ReportsMainActivity extends AppCompatActivity {
     static String token;
     EditText title;
     EditText datetime;
-    TextView location;
     EditText description;
     EditText type;
     MaterialBetterSpinner impact;
@@ -91,9 +86,12 @@ public class ReportsMainActivity extends AppCompatActivity {
     EditText greenCount;
     EditText yellowCount;
     EditText blackCount;
-    EditText Hazmat;
+    MaterialBetterSpinner Hazmat;
     EditText Notes;
     String dateStr, timeStr;
+    EditText address;
+    EditText state;
+    EditText zipCode;
     TextView dateTV;
     TextView timeTV;
 
@@ -109,7 +107,9 @@ public class ReportsMainActivity extends AppCompatActivity {
 
         title = findViewById(R.id.titleofreport);
         datetime = findViewById(R.id.dateandtime);
-        location = findViewById(R.id.location);
+        address = findViewById(R.id.address);
+        state = findViewById(R.id.state);
+        zipCode = findViewById(R.id.zipCode);
         description = findViewById(R.id.description);
         type = findViewById(R.id.Type2);
         impact = findViewById(R.id.spinner1);
@@ -118,7 +118,7 @@ public class ReportsMainActivity extends AppCompatActivity {
         greenCount = findViewById(R.id.Count2);
         yellowCount = findViewById(R.id.Count3);
         blackCount = findViewById(R.id.Count4);
-        Hazmat = findViewById(R.id.Hazmat);
+        Hazmat = findViewById(R.id.hazmatType);
         Notes = findViewById(R.id.Notes);
         //datetime.setText(dateStr+" "+timeStr);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, ImpactLevel);
@@ -129,22 +129,30 @@ public class ReportsMainActivity extends AppCompatActivity {
         MaterialBetterSpinner betterSpinner1 = findViewById(R.id.spinner);
         betterSpinner1.setAdapter(arrayAdapter1);
 
-        DocumentReference documentReference = fStore.collection("usersDB").document(userID);
-        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
-                name = documentSnapshot.getString("firstName");
-//                System.out.println("this is system "+name);
-                Log.e("Name of the user ",name);
+        ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, hazmats);
+        MaterialBetterSpinner betterSpinner2 = findViewById(R.id.hazmatType);
+        betterSpinner2.setAdapter(arrayAdapter2);
 
-                Toast.makeText(ReportsMainActivity.this, "Current user name "+name, Toast.LENGTH_SHORT).show();
-            }
-        });
+        DocumentReference documentReference = fStore.collection("usersDB").document(userID);
+//        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+//            @Override
+//            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+//                name = documentSnapshot.getString("firstName");
+////                System.out.println("this is system "+name);
+//                Log.e("Name of the user ",name);
+//
+//                Toast.makeText(ReportsMainActivity.this, "Current user name "+name, Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void onSubmit(View v) {
         try {
-
+            Intent resu=getIntent();
+            String details=resu.getStringExtra("locationDetails");
+            String[] detailsArr=details.split(",");
+            System.out.println(details);
             DocumentReference documentReference = fStore.collection("reportsDB").document();
 
             Map<String, Object> jsonBody = new HashMap<>();
@@ -152,7 +160,8 @@ public class ReportsMainActivity extends AppCompatActivity {
 //            jsonBody.put("Severity",severity);
 //            jsonBody.put("Incident_Type",incidentType);
 //            jsonBody.put("User",name);
-
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+            LocalDateTime now = LocalDateTime.now();
 //            RequestQueue requestQueue = Volley.newRequestQueue(this);
             Random rnd = new Random();
             int incID = 143 + rnd.nextInt(9999) + this.title.getText().toString().length();
@@ -160,9 +169,13 @@ public class ReportsMainActivity extends AppCompatActivity {
             jsonBody.put("title", this.title.getText().toString());
             jsonBody.put("userName", name);
             // Toast.makeText(getApplicationContext(),this.pwd.getText().toString()+"",Toast.LENGTH_SHORT).show();
-            jsonBody.put("timeDate", datetime.getText().toString());
-            //jsonBody.put("timeDate", dateTV.getText().toString()+" "+timeTV.getText().toString());
-            jsonBody.put("location", "maryville");
+            jsonBody.put("timedate", datetime.getText().toString());
+            jsonBody.put("updatedAt", dtf.format(now));
+            jsonBody.put("address", detailsArr[0]+detailsArr[1]);
+            jsonBody.put("state",detailsArr[4]);
+            jsonBody.put("zipCode",detailsArr[7]);
+            jsonBody.put("latitude",detailsArr[5]);
+            jsonBody.put("longitude",detailsArr[6]);
             jsonBody.put("description", this.description.getText().toString());
             jsonBody.put("typeOfIncident", this.type.getText().toString());
             jsonBody.put("impactLevel", String.valueOf(impact.getText().toString()));
@@ -171,7 +184,7 @@ public class ReportsMainActivity extends AppCompatActivity {
             jsonBody.put("green", this.greenCount.getText().toString());
             jsonBody.put("yellow", this.yellowCount.getText().toString());
             jsonBody.put("black", this.blackCount.getText().toString());
-            jsonBody.put("hazmatType", this.Hazmat.getText().toString());
+            jsonBody.put("hazmatType", String.valueOf(Hazmat.getText().toString()));
             jsonBody.put("incidentId", "INC"+incID);
             jsonBody.put("notes", this.Notes.getText().toString());
 
@@ -256,6 +269,7 @@ public class ReportsMainActivity extends AppCompatActivity {
     public void getLocationAction(View v) {
         Intent intent = new Intent(ReportsMainActivity.this, MapsActivity.class);
         startActivityForResult(intent, 11);
+
     }
 
     public void getDisasterType(View v) {
@@ -301,6 +315,7 @@ public class ReportsMainActivity extends AppCompatActivity {
 
                     int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                     imageEncoded1 = cursor.getString(columnIndex);
+
                     cursor.close();
 
                     ArrayList<Uri> mArrayUri = new ArrayList<Uri>();
@@ -373,9 +388,12 @@ public class ReportsMainActivity extends AppCompatActivity {
         }
         if (requestCode == 11) {
             if (resultCode == 11) {
-                String str = disasterInt.getStringExtra("LocationName");
-                TextView incidentLocTV = findViewById(R.id.location);
-                incidentLocTV.setText(str);
+                String str = disasterInt.getStringExtra("locationDetails");
+                String[] detailsArr=str.split(",");
+                address.setText(detailsArr[0]+detailsArr[1]);
+
+                state.setText(detailsArr[4]);
+                zipCode.setText(detailsArr[7]);
             }
         }
     }

@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -21,7 +20,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
@@ -56,7 +54,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         RootRef = FirebaseDatabase.getInstance().getReference();
         fStore = FirebaseFirestore.getInstance();
 
-        etFullName = findViewById(R.id.etName);
+        etFullName = findViewById(R.id.etFirstName);
         etEmail = findViewById(R.id.etEmail);
         etPhoneNumber =findViewById(R.id.etPhone);
         etPassword = findViewById(R.id.etPassword);
@@ -161,7 +159,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
 
                             if (task.isSuccessful()) {
                                 System.out.println("Task is successful ");
-                                User user1 = new User("Saikumar","Mylavarapu",qualification,"6605281481","Maryville","Missouri","1215 w 16th street ","64468","1231231231","none","01/15/2022","sainallapati55@gmail.com");
+                                User user1 = new User(name,"Mylavarapu",qualification,"6605281386","Kansas","Missouri","1215 w 16th street ","64468","1231231231","none","01/15/2022",email);
                                 String mUid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
                                 FirebaseDatabase.getInstance().getReference("usersDB")
                                         .child(mUid)
@@ -171,7 +169,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                                         if (task.isSuccessful()) {
                                             System.out.println("Task is successful inside");
                                             userID = mAuth.getCurrentUser().getUid();
-                                            RootRef.child("user").child(userID).setValue("");
+                                            RootRef.child("usersDB").child(userID).setValue("");
                                             DocumentReference documentReference = fStore.collection("usersDB").document(userID);
                                             Map<String,Object> user = new HashMap<>();
                                             user.put("firstName",user1.getFirstName());

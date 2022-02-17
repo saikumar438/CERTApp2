@@ -95,6 +95,13 @@ public class ReportsActivity extends AppCompatActivity {
                         r.setHazmatType(document.getString("hazmatType"));
                         r.setIncidentId(document.getString("incidentId"));
                         r.setNotes(document.getString("notes"));
+                        r.setAddress(document.getString("address"));
+                        r.setImageURL(document.getString("imageURL"));
+//                        r.setLatitude(document.getString("latitude"));
+//                        r.setLongitude(document.getString("longitude"));
+                        r.setState(document.getString("state"));
+                        r.setZipcode(document.getString("zipcode"));
+                        r.setUpdatedAt(document.getString("updatedAt"));
                         reportsArrayList.add(r);
                         reportsAdapter.notifyDataSetChanged();
                     }
