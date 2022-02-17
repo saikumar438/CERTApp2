@@ -22,17 +22,9 @@ import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.certapp.HomeScreen;
 import com.example.certapp.MapsActivity;
 import com.example.certapp.R;
-import com.example.certapp.SecondActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -44,9 +36,6 @@ import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -130,16 +119,16 @@ public class ReportsMainActivity extends AppCompatActivity {
         betterSpinner1.setAdapter(arrayAdapter1);
 
         DocumentReference documentReference = fStore.collection("usersDB").document(userID);
-        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
-            @Override
-            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
-                name = documentSnapshot.getString("firstName");
-//                System.out.println("this is system "+name);
-                Log.e("Name of the user ",name);
-
-                Toast.makeText(ReportsMainActivity.this, "Current user name "+name, Toast.LENGTH_SHORT).show();
-            }
-        });
+//        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+//            @Override
+//            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+//                name = documentSnapshot.getString("firstName");
+////                System.out.println("this is system "+name);
+//                Log.e("Name of the user ",name);
+//
+//                Toast.makeText(ReportsMainActivity.this, "Current user name "+name, Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
     public void onSubmit(View v) {
