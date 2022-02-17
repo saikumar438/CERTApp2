@@ -161,7 +161,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
 
                             if (task.isSuccessful()) {
                                 System.out.println("Task is successful ");
-                                User user1 = new User(name,"Mylavarapu",qualification,"6605281481","Maryville","Missouri","1215 w 16th street ","64468","1231231231","none","01/15/2022",email);
+                                User user1 = new User(name,"Mylavarapu",qualification,"6605281386","Kansas","Missouri","1215 w 16th street ","64468","1231231231","none","01/15/2022",email);
                                 String mUid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
                                 FirebaseDatabase.getInstance().getReference("usersDB")
                                         .child(mUid)

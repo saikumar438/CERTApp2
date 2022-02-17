@@ -315,6 +315,7 @@ public class ReportsMainActivity extends AppCompatActivity {
 
                     int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
                     imageEncoded1 = cursor.getString(columnIndex);
+
                     cursor.close();
 
                     ArrayList<Uri> mArrayUri = new ArrayList<Uri>();
