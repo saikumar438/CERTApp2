@@ -17,13 +17,16 @@ public class ReportModel {
     private String hazmatType;
     private String incidentId;
     private String notes;
+    private String address;
+    private String imageURL;
+    private String state;
+    private String zipcode;
+    private String updatedAt;
 
-    public ReportModel(){
-
+    public ReportModel() {
     }
 
-    public ReportModel(String userName, String title, String timedate, String location, String description, String typeOfIncident, String impactLevel, String structuralDamageImpact, String red, String green,
-                       String yellow, String black, String hazmatType, String incidentId, String notes) {
+    public ReportModel(String userName, String title, String timedate, String location, String description, String typeOfIncident, String impactLevel, String structuralDamageImpact, String red, String green, String yellow, String black, String hazmatType, String incidentId, String notes, String address, String imageURL, String state, String zipcode, String updatedAt) {
         this.userName = userName;
         this.title = title;
         this.timedate = timedate;
@@ -39,6 +42,11 @@ public class ReportModel {
         this.hazmatType = hazmatType;
         this.incidentId = incidentId;
         this.notes = notes;
+        this.address = address;
+        this.imageURL = imageURL;
+        this.state = state;
+        this.zipcode = zipcode;
+        this.updatedAt = updatedAt;
     }
 
     public String getUserName() {
@@ -159,6 +167,46 @@ public class ReportModel {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }
 

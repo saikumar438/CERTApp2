@@ -59,7 +59,7 @@ public class ReportsAdapter extends RecyclerView.Adapter<ReportsAdapter.ReportHo
     }
 
     class ReportHolder2 extends RecyclerView.ViewHolder{
-        private TextView title,impact,userName,description,incidentType,effected;
+        private TextView title,impact,userName,description,incidentType,effected,address;
         private LinearLayout itemLayout;
 
 
@@ -71,6 +71,7 @@ public class ReportsAdapter extends RecyclerView.Adapter<ReportsAdapter.ReportHo
             incidentType=itemView.findViewById(R.id.incidentType);
             description=itemView.findViewById(R.id.description);
             effected=itemView.findViewById(R.id.effected);
+            address=itemView.findViewById(R.id.address);
             itemLayout =  itemView.findViewById(R.id.itemLayout);
 
 
@@ -84,6 +85,7 @@ public class ReportsAdapter extends RecyclerView.Adapter<ReportsAdapter.ReportHo
             description.setText(report.getDescription());
             int red = Integer.parseInt(report.getRed()) + Integer.parseInt(report.getBlack()) + Integer.parseInt(report.getYellow()) + Integer.parseInt(report.getGreen());
             effected.setText((String.valueOf(red)));
+            address.setText(report.getAddress());
         }
 
 
