@@ -2,25 +2,33 @@ package com.example.certapp;
 
 public class User {
 
-    public String firstName,lastName,qualification,contactNumber,city,state,streetAddress,zipCode,verifyPassword,others,createdAt,emailAddress;
+    public String firstName,lastName,qualification,contactNumber,city,state,streetAddress,zipCode,password,verifyPassword,others,emailAddress;
     public User()
     {
 
     }
 
-    public User(String firstName, String lastName, String qualification, String contactNumber, String city, String state, String streetAddress, String zipCode, String verifyPassword, String others, String createdAt, String emailAddress) {
+    public User(String firstName, String lastName, String qualification, String contactNumber, String city, String state, String streetAddress, String zipCode,String password, String verifyPassword, String others, String emailAddress) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.qualification = qualification;
         this.contactNumber = contactNumber;
         this.city = city;
+        this.password=password;
         this.state = state;
         this.streetAddress = streetAddress;
         this.zipCode = zipCode;
         this.verifyPassword = verifyPassword;
         this.others = others;
-        this.createdAt = createdAt;
         this.emailAddress = emailAddress;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getFirstName() {
@@ -103,13 +111,6 @@ public class User {
         this.others = others;
     }
 
-    public String getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
 
     public String getEmailAddress() {
         return emailAddress;

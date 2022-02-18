@@ -95,6 +95,7 @@ public class ReportsMainActivity extends AppCompatActivity {
     TextView dateTV;
     TextView timeTV;
 
+    String[] detailsArr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -134,25 +135,25 @@ public class ReportsMainActivity extends AppCompatActivity {
         betterSpinner2.setAdapter(arrayAdapter2);
 
         DocumentReference documentReference = fStore.collection("usersDB").document(userID);
-//        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
-//            @Override
-//            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
-//                name = documentSnapshot.getString("firstName");
-////                System.out.println("this is system "+name);
-//                Log.e("Name of the user ",name);
-//
-//                Toast.makeText(ReportsMainActivity.this, "Current user name "+name, Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
+            @Override
+            public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+                name = documentSnapshot.getString("firstName");
+//                System.out.println("this is system "+name);
+                Log.e("Name of the user ",name);
+
+                Toast.makeText(ReportsMainActivity.this, "Current user name "+name, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void onSubmit(View v) {
         try {
-            Intent resu=getIntent();
-            String details=resu.getStringExtra("locationDetails");
-            String[] detailsArr=details.split(",");
-            System.out.println(details);
+//            Intent resu=getIntent();
+//            String details=resu.getStringExtra("locationDetails");
+//            String[] detailsArr=details.split(",");
+//            System.out.println(details);
             DocumentReference documentReference = fStore.collection("reportsDB").document();
 
             Map<String, Object> jsonBody = new HashMap<>();
@@ -389,7 +390,7 @@ public class ReportsMainActivity extends AppCompatActivity {
         if (requestCode == 11) {
             if (resultCode == 11) {
                 String str = disasterInt.getStringExtra("locationDetails");
-                String[] detailsArr=str.split(",");
+                detailsArr=str.split(",");
                 address.setText(detailsArr[0]+detailsArr[1]);
 
                 state.setText(detailsArr[4]);

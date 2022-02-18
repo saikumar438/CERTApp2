@@ -43,7 +43,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
     private FirebaseFirestore fStore;
     private DatabaseReference RootRef;
     private String userID;
-    private EditText etFullName,etEmail,etPhoneNumber,etPassword,etAddress,etQualification;
+    private EditText etFirstName,etLastName,etEmail,etPhone,etPassword,etVerifyPassword,etAddress,etCity,etState,etZipCode;
     private Spinner spinner ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,11 +54,16 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         RootRef = FirebaseDatabase.getInstance().getReference();
         fStore = FirebaseFirestore.getInstance();
 
-        etFullName = findViewById(R.id.etFirstName);
+        etFirstName = findViewById(R.id.etFirstName);
+        etLastName = findViewById(R.id.etLastName);
         etEmail = findViewById(R.id.etEmail);
-        etPhoneNumber =findViewById(R.id.etPhone);
+        etPhone =findViewById(R.id.etPhone);
         etPassword = findViewById(R.id.etPassword);
+        etVerifyPassword =findViewById(R.id.etVerifyPassword);
         etAddress =findViewById(R.id.etAddress);
+        etCity = findViewById(R.id.etCity);
+        etState = findViewById(R.id.etState);
+        etZipCode = findViewById(R.id.etZipCode);
         spinner = (Spinner) findViewById(R.id.etQualification);
         final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
                 this,R.layout.support_simple_spinner_dropdown_item,R.array.qualifications_array){
@@ -104,19 +109,25 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         System.out.println("Out side try method");
         try {
             System.out.println("In try method register");
-            String name = etFullName.getText().toString();
-
+            String name = etFirstName.getText().toString();
+            String lname = etLastName.getText().toString();
             String email = etEmail.getText().toString();
-            String phoneNumber = etPhoneNumber.getText().toString();
-            String password = etPassword.getText().toString();
+            String phoneNumber = etPhone.getText().toString();
             String address = etAddress.getText().toString();
+            String city = etCity.getText().toString();
+            String state = etState.getText().toString();
+            String zipCode = etZipCode.getText().toString();
+            String password = etPassword.getText().toString();
+            String verifyPassword = etVerifyPassword.getText().toString();
 
             String qualification = spinner.getSelectedItem().toString();
-
+            if(qualification=="Others"){
+                System.out.println("Nothing");
+            }
             System.out.println("inside try method ");
             if(name.isEmpty())
             {
-                etFullName.setError("Please Enter your Full Name");
+                etFirstName.setError("Please Enter your Full Name");
             }
             if(email.isEmpty())
             {
@@ -128,11 +139,11 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
             }
             if(phoneNumber.isEmpty())
             {
-                etPhoneNumber.setError("Please enter a Phone Number");
+                etPhone.setError("Please enter a Phone Number");
             }
             if(phoneNumber.length() != 10)
             {
-                etPhoneNumber.setError("Phone Number must be 10 digits ");
+                etPhone.setError("Phone Number must be 10 digits ");
             }
 
             if(password.isEmpty())
@@ -147,10 +158,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
             {
                 etAddress.setError("Please Enter your Full Name");
             }
-            if(qualification.isEmpty())
-            {
-                etQualification.setError("Please Enter the Email");
-            }
+
 
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -159,7 +167,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
 
                             if (task.isSuccessful()) {
                                 System.out.println("Task is successful ");
-                                User user1 = new User(name,"Mylavarapu",qualification,"6605281386","Kansas","Missouri","1215 w 16th street ","64468","1231231231","none","01/15/2022",email);
+                                User user1 = new User(name,lname,qualification,phoneNumber,city,state,address,zipCode,password,verifyPassword,"none",email);
                                 String mUid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
                                 FirebaseDatabase.getInstance().getReference("usersDB")
                                         .child(mUid)
@@ -177,16 +185,15 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                                             user.put("emailAddress",user1.getEmailAddress());
                                             user.put("contactNumber",user1.getContactNumber());
                                             user.put("city",user1.getCity());
+                                            user.put("qualification",user1.getQualification());
                                             user.put("state",user1.getState());
                                             user.put("streetAddress",user1.getStreetAddress());
                                             user.put("zipCode",user1.getZipCode());
+                                            user.put("password",user1.getPassword());
                                             user.put("verifyPassword",user1.getVerifyPassword());
                                             user.put("others",user1.getOthers());
-                                            user.put("createdAt",user1.getCreatedAt());
-                                            user.put("password","1231231231");
+                                            user.put("createdAt","12/2002");
 
-
-                                            user.put("qualification",user1.getQualification());
                                             documentReference.set(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {

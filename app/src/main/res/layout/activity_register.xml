@@ -119,7 +119,7 @@
             app:layout_constraintVertical_bias="0.528" />
 
         <EditText
-            android:id="@+id/etStreetAddress"
+            android:id="@+id/etAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -133,7 +133,7 @@
             app:layout_constraintVertical_bias="0.611" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName23"
+            android:id="@+id/etZipCode"
             android:layout_width="155dp"
             android:layout_height="match_parent"
             android:layout_margin="6dp"
@@ -181,6 +181,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+
             android:hint="Others"
             android:inputType="textPersonName"
             android:layout_margin="6dp"
@@ -213,7 +214,7 @@
             android:layout_height="50dp"
             android:text="Register"
             android:layout_margin="10dp"
-
+            android:onClick="register"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
