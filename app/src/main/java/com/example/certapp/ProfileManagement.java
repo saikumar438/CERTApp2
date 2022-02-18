@@ -19,7 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class ProfileManagement extends AppCompatActivity {
 
-    TextView fName,address,phoneNumber,qualification,email;
+    TextView fName,lName,addressp,phoneNumber,qualification,email;
     String userId;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
@@ -28,7 +28,8 @@ public class ProfileManagement extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_management);
         fName = findViewById(R.id.fName);
-        address = findViewById(R.id.address);
+        lName = findViewById(R.id.lName);
+        addressp = findViewById(R.id.addressProfile);
         phoneNumber = findViewById(R.id.phoneNumber);
         qualification = findViewById(R.id.qualification);
         email = findViewById(R.id.email);
@@ -43,11 +44,12 @@ public class ProfileManagement extends AppCompatActivity {
             @Override
                 public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
                 fName.setText(documentSnapshot.getString("firstName"));
+                lName.setText(documentSnapshot.getString("lastName"));
                 System.out.println("this is system "+fName.getText());
-                email.setText(documentSnapshot.getString("Email"));
-                qualification.setText(documentSnapshot.getString("Qualification"));
-                address.setText(documentSnapshot.getString("Address"));
-                phoneNumber.setText(documentSnapshot.getString("PhoneNumber"));
+                email.setText(documentSnapshot.getString("emailAddress"));
+                qualification.setText(documentSnapshot.getString("qualification"));
+                addressp.setText(documentSnapshot.getString("streetAddress"));
+                phoneNumber.setText(documentSnapshot.getString("contactNumber"));
             }
         });
     }
