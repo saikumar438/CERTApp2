@@ -62,13 +62,12 @@ public class GroupChatActivity extends AppCompatActivity {
         userID = mAuth.getCurrentUser().getUid();
         Log.e("User ID ",userID);
 
-        DocumentReference documentReference = fStore.collection("user").document(userID);
+        DocumentReference documentReference = fStore.collection("usersDB").document(userID);
         documentReference.addSnapshotListener(GroupChatActivity.this, new EventListener<DocumentSnapshot>() {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
                 name = documentSnapshot.getString("FullName");
-                System.out.println("this is system "+name);
-                Log.e("Name of the user ",name);
+
 
                 Toast.makeText(GroupChatActivity.this, "Current user name "+name, Toast.LENGTH_SHORT).show();
 
@@ -209,9 +208,9 @@ public class GroupChatActivity extends AppCompatActivity {
             String chatDate = (String) ((DataSnapshot)iterator.next()).getValue() ;
             String chatMessage = (String) ((DataSnapshot)iterator.next()).getValue() ;
             String chatName = (String) ((DataSnapshot)iterator.next()).getValue() ;
-            String chatTime = (String) ((DataSnapshot)iterator.next()).getValue() ;
+//            String chatTime = (String) ((DataSnapshot)iterator.next()).getValue() ;
 
-            displayTextMessages.append(chatName + " :\n"+chatMessage+" \n"+chatTime+"    "+chatDate+" \n\n\n");
+            displayTextMessages.append(chatName + " :\n"+chatMessage+" \n"+"    "+chatDate+" \n\n\n");
 
             mScrollView.fullScroll(ScrollView.FOCUS_DOWN);
         }
