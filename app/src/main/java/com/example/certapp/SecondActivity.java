@@ -42,14 +42,15 @@ import javax.net.ssl.SSLEngineResult;
 
 public class SecondActivity extends AppCompatActivity {
 
-    RadioButton rb1,rb2,rb3;
+
     EditText editText;
-    TextView textView1,textView2;
+    TextView textView1,textView2,address;
     private FirebaseFirestore fStore;
     private FirebaseAuth mAuth;
-    private String userID,name;
+    private String userID,name,finalLoc;
     //private FirebaseFirestore fStore;
     private DatabaseReference RootRef;
+    String laneAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,7 @@ public class SecondActivity extends AppCompatActivity {
             editText = findViewById(R.id.edit_text);
 //        textView1 = findViewById(R.id.textView);
             textView2 = findViewById(R.id.text_view2);
+            address = findViewById(R.id.fullAddress);
             userID = mAuth.getCurrentUser().getUid();
             Log.e("Create Report",userID);
             Places.initialize(getApplicationContext(), "AIzaSyAdjioNdUzNH-aApWJfa2PPB6zro6O6LTA");
@@ -80,17 +82,17 @@ public class SecondActivity extends AppCompatActivity {
             });
 
             DocumentReference documentReference = fStore.collection("user").document(userID);
-            documentReference.addSnapshotListener(SecondActivity.this, new EventListener<DocumentSnapshot>() {
-                @Override
-                public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
-                    name = documentSnapshot.getString("FullName");
-                    System.out.println("this is system "+name);
-                    Log.e("Name of the user ",name);
-
-                    Toast.makeText(SecondActivity.this, "Current user name "+name, Toast.LENGTH_SHORT).show();
-
-                }
-            });
+//            documentReference.addSnapshotListener(SecondActivity.this, new EventListener<DocumentSnapshot>() {
+//                @Override
+//                public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
+//                    name = documentSnapshot.getString("FullName");
+//                    System.out.println("this is system "+name);
+//                    Log.e("Name of the user ",name);
+//
+//                    Toast.makeText(SecondActivity.this, "Current user name "+name, Toast.LENGTH_SHORT).show();
+//
+//                }
+//            });
 
 
 
@@ -109,6 +111,32 @@ public class SecondActivity extends AppCompatActivity {
                 editText.setText(place.getAddress());
 //                textView1.setText(String.format("Locality Name is :- ", place.getName()));
                 textView2.setText(String.valueOf(place.getLatLng()));
+                String temp = String.valueOf(place.getLatLng());
+                Log.e("in Temporary",temp);
+                String arr[] = temp.split(",");
+                String latitude = arr[0].substring(10,arr[0].length());
+                String longitude = arr[1].substring(0,(arr[1].length()-1));
+                Log.e("Array",arr[0]);
+                Log.e("Array",arr[1]);
+                Log.e("Latitude",latitude);
+                Log.e("Longitude",longitude);
+
+                Geocoder geocoder;
+                List<Address> addresses;
+                geocoder = new Geocoder(this, Locale.getDefault());
+
+                addresses = geocoder.getFromLocation(Double.parseDouble(latitude), Double.parseDouble(longitude), 1);
+                laneAddress = addresses.get(0).getAddressLine(0);
+//                String city = addresses.get(0).getLocality();
+//                String state = addresses.get(0).getAdminArea();
+//                String zip = addresses.get(0).getPostalCode();
+//                String country = addresses.get(0).getCountryName();
+                finalLoc=addresses.get(0).getAddressLine(0)+","+
+                        addresses.get(0).getAdminArea() + "," +
+                        latitude+","+longitude+","+addresses.get(0).getPostalCode();
+                Log.e("Final Address",finalLoc);
+                address.setText(String.valueOf(laneAddress));
+                Log.e("Address", String.valueOf(addresses));
             } else if (resultCode == AutocompleteActivity.RESULT_ERROR) {
                 Status status = Autocomplete.getStatusFromIntent(data);
 
@@ -124,24 +152,9 @@ public class SecondActivity extends AppCompatActivity {
 
     public void submit(View view)
     {
-        rb1= findViewById(R.id.radioButton);
-        rb2= findViewById(R.id.radioButton2);
-        rb3= findViewById(R.id.radioButton3);
-        editText = findViewById(R.id.et1);
+
         String incidentType = editText.getText().toString();
-        String severity;
-        if(rb1.isChecked())
-        {
-            severity = "High";
-        }
-        else if(rb2.isChecked())
-        {
-            severity = "Medium";
-        }
-        else
-        {
-            severity = "Low";
-        }
+
         String location = textView2.getText().toString();
 
 
@@ -149,28 +162,35 @@ public class SecondActivity extends AppCompatActivity {
 
         Map<String,Object> report = new HashMap<>();
         report.put("Location",location);
-        report.put("Severity",severity);
+
         report.put("Incident_Type",incidentType);
         report.put("User",name);
 
-        documentReference.set(report).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if(task.isSuccessful()) {
-                    Toast.makeText(SecondActivity.this, "report details saved successfully", Toast.LENGTH_SHORT).show();
-                    Log.e("Create Report",userID);
-                }else
-                {
-                    Toast.makeText(SecondActivity.this, "Error report details not saved ", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+//        documentReference.set(report).addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Void> task) {
+//                if(task.isSuccessful()) {
+//                    Toast.makeText(SecondActivity.this, "report details saved successfully", Toast.LENGTH_SHORT).show();
+//                    Log.e("Create Report",userID);
+//                }else
+//                {
+//                    Toast.makeText(SecondActivity.this, "Error report details not saved ", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
 
         Intent intent = new Intent(this,HomeScreen.class);
         startActivity(intent);
 
     }
 
+    public void backToIncidentReport(View v){
+        Intent in = new Intent();
+        in.putExtra("locationDetails",finalLoc);
+        setResult(45,in);
+
+        finish();
+    }
 
 
 }

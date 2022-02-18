@@ -27,6 +27,7 @@ import android.widget.Toast;
 import com.example.certapp.HomeScreen;
 import com.example.certapp.MapsActivity;
 import com.example.certapp.R;
+import com.example.certapp.SecondActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -139,8 +140,7 @@ public class ReportsMainActivity extends AppCompatActivity {
             @Override
             public void onEvent(@Nullable DocumentSnapshot documentSnapshot, @Nullable FirebaseFirestoreException error) {
                 name = documentSnapshot.getString("firstName");
-//                System.out.println("this is system "+name);
-                Log.e("Name of the user ",name);
+
 
                 Toast.makeText(ReportsMainActivity.this, "Current user name "+name, Toast.LENGTH_SHORT).show();
             }
@@ -397,6 +397,18 @@ public class ReportsMainActivity extends AppCompatActivity {
                 zipCode.setText(detailsArr[7]);
             }
         }
+
+        if (requestCode == 45) {
+            if (resultCode == 45) {
+                String str = disasterInt.getStringExtra("locationDetails");
+                Log.e("Location Details 45",str);
+                detailsArr=str.split(",");
+                address.setText(detailsArr[0]+detailsArr[1]);
+
+                state.setText(detailsArr[4]);
+                zipCode.setText(detailsArr[7]);
+            }
+        }
     }
 
 
@@ -445,6 +457,12 @@ public class ReportsMainActivity extends AppCompatActivity {
 //                    }
 //                }, mHour, mMinute, true);
 //        timePickerDialog.show();
+    }
+
+    public void manualLocation(View view)
+    {
+        Intent intent = new Intent(ReportsMainActivity.this, SecondActivity.class);
+        startActivityForResult(intent,45);
     }
 
 }
