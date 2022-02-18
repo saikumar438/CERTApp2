@@ -46,6 +46,7 @@ public class ProfileManagement extends AppCompatActivity {
                 fName.setText(documentSnapshot.getString("firstName"));
                 lName.setText(documentSnapshot.getString("lastName"));
                 System.out.println("this is system "+fName.getText());
+                Log.e("Name", String.valueOf(fName));
                 email.setText(documentSnapshot.getString("emailAddress"));
                 qualification.setText(documentSnapshot.getString("qualification"));
                 addressp.setText(documentSnapshot.getString("streetAddress"));
