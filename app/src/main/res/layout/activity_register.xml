@@ -96,7 +96,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Enter Password"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:layout_margin="6dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -110,7 +110,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Verify Password"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             android:layout_margin="6dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -220,10 +220,24 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etOthers" />
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/myCoordinatorLayout"
 
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        />
+            <!-- Here are the existing layout elements, now wrapped in
+                 a CoordinatorLayout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
+                <!-- …Toolbar, other layouts, other elements… -->
+
+            </LinearLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
