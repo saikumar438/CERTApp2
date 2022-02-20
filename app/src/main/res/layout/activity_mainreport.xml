@@ -134,20 +134,20 @@
 
                 android:textSize="24dp" />
 
-            <TextView
-                android:id="@+id/desc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Description"
-                android:textColor="#1C1818"
-                android:textSize="24dp" />
+<!--            <TextView-->
+<!--                android:id="@+id/desc"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Description"-->
+<!--                android:textColor="#1C1818"-->
+<!--                android:textSize="24dp" />-->
 
-            <EditText
-                android:id="@+id/description"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:layout_marginBottom="10dp"
-                android:hint="Description" />
+<!--            <EditText-->
+<!--                android:id="@+id/description"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="56dp"-->
+<!--                android:layout_marginBottom="10dp"-->
+<!--                android:hint="Description" />-->
 
             <TextView
                 android:id="@+id/Type1"
@@ -158,20 +158,22 @@
 
                 android:textSize="24dp" />
 
-            <EditText
+            <TextView
                 android:id="@+id/Type2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="Thunder/Storm/Floods"
                 android:onClick="getDisasterType"
                 android:textColor="#23231D"
-                android:layout_marginBottom="10dp"/>
+                android:padding="15dp"
+                android:layout_marginBottom="10dp"
+                tools:ignore="UsingOnClickInXml" />
 
             <TextView
                 android:id="@+id/Impact1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Level of Impact"
+                android:text="Fire Hazard Impact Level"
                 android:textColor="#32322A"
                 android:textSize="24dp" />
 

@@ -82,7 +82,19 @@ public class ReportsAdapter extends RecyclerView.Adapter<ReportsAdapter.ReportHo
             impact.setText(report.getImpactLevel());
             title.setText(report.getTitle());
             incidentType.setText(report.getTypeOfIncident());
-            description.setText(report.getDescription());
+            description.setText(report.getNotes());
+            if(report.getRed()==""){
+                report.setRed("0");
+            }
+            if(report.getBlack()==""){
+                report.setBlack("0");
+            }
+            if(report.getYellow()==""){
+                report.setYellow("0");
+            }
+            if(report.getGreen()==""){
+                report.setGreen("0");
+            }
             int red = Integer.parseInt(report.getRed()) + Integer.parseInt(report.getBlack()) + Integer.parseInt(report.getYellow()) + Integer.parseInt(report.getGreen());
             effected.setText((String.valueOf(red)));
             address.setText(report.getAddress());

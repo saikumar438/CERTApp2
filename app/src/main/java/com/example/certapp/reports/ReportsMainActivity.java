@@ -79,8 +79,8 @@ public class ReportsMainActivity extends AppCompatActivity {
     static String token;
     EditText title;
     EditText datetime;
-    EditText description;
-    EditText type;
+//    EditText description;
+    TextView type;
     MaterialBetterSpinner impact;
     MaterialBetterSpinner impact1;
     EditText redCount;
@@ -112,7 +112,7 @@ public class ReportsMainActivity extends AppCompatActivity {
         address = findViewById(R.id.address);
         state = findViewById(R.id.state);
         zipCode = findViewById(R.id.zipCode);
-        description = findViewById(R.id.description);
+//        description = findViewById(R.id.description);
         type = findViewById(R.id.Type2);
         impact = findViewById(R.id.spinner1);
         impact1 = findViewById(R.id.spinner);
@@ -177,7 +177,7 @@ public class ReportsMainActivity extends AppCompatActivity {
             jsonBody.put("zipCode",detailsArr[7]);
             jsonBody.put("latitude",detailsArr[5]);
             jsonBody.put("longitude",detailsArr[6]);
-            jsonBody.put("description", this.description.getText().toString());
+//            jsonBody.put("description", this.description.getText().toString());
             jsonBody.put("typeOfIncident", this.type.getText().toString());
             jsonBody.put("impactLevel", String.valueOf(impact.getText().toString()));
             jsonBody.put("structuralDamageImpact", String.valueOf(impact1.getText().toString()));
@@ -371,19 +371,19 @@ public class ReportsMainActivity extends AppCompatActivity {
         if (requestCode == TASK_REQ) {
             if (resultCode == TASK_RES) {
                 String str = disasterInt.getStringExtra("name");
-                EditText edt = findViewById(R.id.Type2);
+                TextView edt = findViewById(R.id.Type2);
                 edt.setText(str);
             } else if (resultCode == GOOD_RES) {
                 String str = disasterInt.getStringExtra("disaster");
-                EditText edt = findViewById(R.id.Type2);
+                TextView edt = findViewById(R.id.Type2);
                 edt.setText(str);
             } else if (resultCode == TOG_RES) {
                 String str = disasterInt.getStringExtra("disaster");
-                EditText edt = findViewById(R.id.Type2);
+                TextView edt = findViewById(R.id.Type2);
                 edt.setText(str);
             } else if (resultCode == FLO_RES) {
                 String str = disasterInt.getStringExtra("disaster");
-                EditText edt = findViewById(R.id.Type2);
+                TextView edt = findViewById(R.id.Type2);
                 edt.setText(str);
             }
         }
