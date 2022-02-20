@@ -71,6 +71,8 @@ public class ReportsMainActivity extends AppCompatActivity {
 
     String[] hazmats = {"Solid","gas","Chemical","Oil Spill","Electricity","None"};
 
+    String[] incidentTypes={"Earthquake","Floods","Tornado","Storm","Fire"};
+
     int PICK_IMAGE_MULTIPLE_1 = 1;
     String imageEncoded1;
     List<String> imagesEncodedList1;
@@ -80,7 +82,7 @@ public class ReportsMainActivity extends AppCompatActivity {
     EditText title;
     EditText datetime;
 //    EditText description;
-    TextView type;
+MaterialBetterSpinner type;
     MaterialBetterSpinner impact;
     MaterialBetterSpinner impact1;
     EditText redCount;
@@ -134,6 +136,10 @@ public class ReportsMainActivity extends AppCompatActivity {
         ArrayAdapter<String> arrayAdapter2 = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, hazmats);
         MaterialBetterSpinner betterSpinner2 = findViewById(R.id.hazmatType);
         betterSpinner2.setAdapter(arrayAdapter2);
+
+        ArrayAdapter<String> arrayAdapter3 = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, incidentTypes);
+        MaterialBetterSpinner betterSpinner3 = findViewById(R.id.Type2);
+        betterSpinner3.setAdapter(arrayAdapter3);
 
         DocumentReference documentReference = fStore.collection("usersDB").document(userID);
         documentReference.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {

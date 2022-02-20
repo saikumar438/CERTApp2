@@ -49,7 +49,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
     private FirebaseFirestore fStore;
     private DatabaseReference RootRef;
     private String userID;
-    private EditText etFirstName,etLastName,etEmail,etPhone,etPassword,etVerifyPassword,etAddress,etCity,etState,etZipCode;
+    private EditText etFirstName,etLastName,etEmail,etPhone,etPassword,etVerifyPassword,etAddress,etCity,etState,etZipCode,etOthers;
     private Spinner spinner ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +70,8 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         etState = findViewById(R.id.etState);
         etZipCode = findViewById(R.id.etZipCode);
         spinner = (Spinner) findViewById(R.id.etQualification);
+        etOthers=findViewById(R.id.etOthers);
+        etOthers.setVisibility(View.GONE);
         final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
                 this,R.layout.support_simple_spinner_dropdown_item,R.array.qualifications_array){
             @Override
@@ -126,7 +128,11 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
             String verifyPassword = etVerifyPassword.getText().toString();
 
             String qualification = spinner.getSelectedItem().toString();
+
+
             if(qualification=="Others"){
+
+                etOthers.setVisibility(View.VISIBLE);
                 System.out.println("Nothing");
             }
             System.out.println("inside try method ");
