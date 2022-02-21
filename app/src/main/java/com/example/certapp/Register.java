@@ -71,11 +71,15 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         etZipCode = findViewById(R.id.etZipCode);
         spinner = (Spinner) findViewById(R.id.etQualification);
         etOthers=findViewById(R.id.etOthers);
-        etOthers.setVisibility(View.GONE);
+
         final ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(
                 this,R.layout.support_simple_spinner_dropdown_item,R.array.qualifications_array){
             @Override
             public boolean isEnabled(int position){
+                if(position == 6)
+                {
+                    etOthers.setVisibility(View.VISIBLE);
+                }
                 if(position == 0)
                 {
                     return false;
@@ -90,6 +94,10 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                                         ViewGroup parent) {
                 View view = super.getDropDownView(position, convertView, parent);
                 TextView tv = (TextView) view;
+                if(position == 6)
+                {
+                    etOthers.setVisibility(View.VISIBLE);
+                }
                 if(position == 0){
                     // Set the hint text color gray
                     tv.setTextColor(Color.GRAY);
@@ -107,7 +115,24 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 12)
+                {
+                    etOthers.setVisibility(View.VISIBLE);
+                }
+                else
+                {
+                    etOthers.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
 

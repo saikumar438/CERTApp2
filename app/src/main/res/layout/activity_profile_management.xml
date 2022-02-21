@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="@color/material_on_primary_emphasis_medium"
+
     tools:context=".ProfileManagement">
 
     <TextView
@@ -28,7 +28,7 @@
         android:layout_width="360dp"
         android:layout_height="53dp"
         android:background="@drawable/rounded_corners"
-        android:text="   Profile Management"
+        android:text="Profile Management"
         android:textColor="@color/black"
         android:textSize="34sp"
         android:textStyle="bold"
@@ -93,8 +93,8 @@
 
     <Button
         android:id="@+id/reports"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
+        android:layout_width="164dp"
+        android:layout_height="48dp"
         android:onClick="reports"
         android:text="Your Reports"
         android:textColor="@color/white"
