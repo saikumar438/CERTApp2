@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.certapp.Card.ReportsActivity;
+import com.example.certapp.reports.ReportsMainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -61,10 +63,11 @@ public class ProfileManagement extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void reports(View view)
+    public void updateProfile(View view)
     {
-        Intent intent = new Intent(ProfileManagement.this, ReportsActivity.class);
-        startActivity(intent);
+//        Intent intent = new Intent(ProfileManagement.this, ReportsActivity.class);
+//        startActivity(intent);
+        Toast.makeText(ProfileManagement.this, "Profile updated", Toast.LENGTH_SHORT).show();
     }
 
 
