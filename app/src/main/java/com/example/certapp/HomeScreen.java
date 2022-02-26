@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.certapp.Card.ReportsActivity;
 import com.example.certapp.reports.ReportsMainActivity;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -95,6 +96,12 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
     {
         System.out.println("button pressed create report");
         Intent intent = new Intent(this, ReportsMainActivity.class);
+        startActivity(intent);
+    }
+
+    public void reports(View view)
+    {
+        Intent intent = new Intent(HomeScreen.this, ReportsActivity.class);
         startActivity(intent);
     }
 
