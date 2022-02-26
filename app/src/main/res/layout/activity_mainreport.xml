@@ -17,20 +17,21 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="218dp"
-        tools:layout_editor_absoluteY="123dp">
+        tools:layout_editor_absoluteX="34dp"
+        tools:layout_editor_absoluteY="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/report"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="INCIDENT REPORT"
                 android:textColor="#EF4107"
-                android:gravity="center"
                 android:textSize="30dp" />
 
             <TextView
@@ -39,8 +40,7 @@
                 android:layout_height="wrap_content"
                 android:text="Title of Report "
                 android:textColor="#383142"
-                android:textSize="24dp"
-                />
+                android:textSize="24dp" />
 
             <EditText
                 android:id="@+id/titleofreport"
@@ -56,33 +56,38 @@
                 android:text="Report date and time "
                 android:textColor="#322D2D"
                 android:textSize="24dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-            <Button
-                android:id="@+id/DateBTN"
-                android:layout_width="159dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:onClick="dateClick"
-                android:text="Select Date" />
 
-            <Button
-                android:id="@+id/TimeBTN"
-                android:layout_width="159dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:onClick="timeClick"
-                android:text="Select Time" />
-        </LinearLayout>
+                <Button
+                    android:id="@+id/DateBTN"
+                    android:layout_width="159dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_corners"
+                    android:onClick="dateClick"
+                    android:text="Select Date" />
+
+                <Button
+                    android:id="@+id/TimeBTN"
+                    android:layout_width="159dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_corners"
+                    android:onClick="timeClick"
+                    android:text="Select Time" />
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/dateandtime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:hint="02-08-2022 12:00"/>
+                android:hint="MM/DD/YYYY HH:MM" />
+
             <androidx.gridlayout.widget.GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -94,29 +99,33 @@
                     android:layout_width="159dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:background="@drawable/rounded_corners"
                     android:onClick="getLocationAction"
                     android:text="Location"
-                    app:layout_row="0"
-                    app:layout_column="0"/>
+                    app:layout_column="0"
+                    app:layout_row="0" />
 
                 <Button
                     android:id="@+id/getmanualLocationButton"
-                    android:layout_width="200dp"
+                    android:layout_width="180dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:background="@drawable/rounded_corners"
                     android:onClick="manualLocation"
                     android:text="Custom Location"
                     app:layout_column="1"
                     app:layout_row="0" />
 
             </androidx.gridlayout.widget.GridLayout>
+
             <EditText
                 android:id="@+id/address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Address of the Incident"
                 android:enabled="false"
+                android:text="Address of the Incident"
                 android:textSize="24dp" />
+
             <EditText
                 android:id="@+id/state"
                 android:layout_width="match_parent"
@@ -125,6 +134,7 @@
                 android:text="State"
 
                 android:textSize="24dp" />
+
             <EditText
                 android:id="@+id/zipCode"
                 android:layout_width="match_parent"
@@ -134,20 +144,20 @@
 
                 android:textSize="24dp" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/desc"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Description"-->
-<!--                android:textColor="#1C1818"-->
-<!--                android:textSize="24dp" />-->
+            <!--            <TextView-->
+            <!--                android:id="@+id/desc"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="Description"-->
+            <!--                android:textColor="#1C1818"-->
+            <!--                android:textSize="24dp" />-->
 
-<!--            <EditText-->
-<!--                android:id="@+id/description"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="56dp"-->
-<!--                android:layout_marginBottom="10dp"-->
-<!--                android:hint="Description" />-->
+            <!--            <EditText-->
+            <!--                android:id="@+id/description"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="56dp"-->
+            <!--                android:layout_marginBottom="10dp"-->
+            <!--                android:hint="Description" />-->
 
             <TextView
                 android:id="@+id/Type1"
@@ -162,12 +172,11 @@
                 android:id="@+id/Type2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Thunder/Storm/Floods"
-
-                android:textColor="#23231D"
-                android:padding="15dp"
                 android:layout_marginBottom="10dp"
-               />
+
+                android:hint="Thunder/Storm/Floods"
+                android:padding="15dp"
+                android:textColor="#23231D" />
 
             <TextView
                 android:id="@+id/Impact1"
@@ -181,9 +190,8 @@
                 android:id="@+id/spinner1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="High"
                 android:layout_marginBottom="10dp"
-                />
+                android:hint="High" />
 
             <TextView
                 android:id="@+id/Impact"
@@ -197,9 +205,8 @@
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Select Impact Level"
                 android:layout_marginBottom="10dp"
-                />
+                android:hint="Select Impact Level" />
 
             <TextView
                 android:id="@+id/casualities"
@@ -208,6 +215,7 @@
                 android:text="Casualities"
                 android:textColor="#352E2B"
                 android:textSize="24dp" />
+
             <androidx.gridlayout.widget.GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -222,8 +230,8 @@
                     android:gravity="center_horizontal"
 
                     android:text="Red"
-                    android:textSize="24dp"
                     android:textColor="#BAFFFFFF"
+                    android:textSize="24dp"
                     app:layout_column="0"
                     app:layout_row="0" />
 
@@ -242,8 +250,8 @@
                     android:background="#FFD600"
                     android:gravity="center_horizontal"
                     android:text="Yellow"
-                    android:textSize="24dp"
                     android:textColor="#BAFFFFFF"
+                    android:textSize="24dp"
                     app:layout_column="0"
                     app:layout_row="1" />
 
@@ -279,23 +287,23 @@
                     android:id="@+id/Color4"
                     android:layout_width="193dp"
                     android:layout_height="44dp"
+                    android:layout_marginBottom="10dp"
                     android:background="#060706"
                     android:gravity="center_horizontal"
                     android:text="Black"
                     android:textColor="#BAFFFFFF"
                     android:textSize="24dp"
                     app:layout_column="0"
-                    app:layout_row="3"
-                    android:layout_marginBottom="10dp"/>
+                    app:layout_row="3" />
 
                 <EditText
                     android:id="@+id/Count4"
                     android:layout_width="193dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:hint="Enter the count"
                     app:layout_column="1"
-                    app:layout_row="3"
-                    android:layout_marginBottom="10dp"/>
+                    app:layout_row="3" />
 
 
             </androidx.gridlayout.widget.GridLayout>
@@ -308,20 +316,20 @@
                 android:text="Hazmat Type:"
                 android:textColor="#2C2725"
                 android:textSize="24dp" />
+
             <com.weiwangcn.betterspinner.library.material.MaterialBetterSpinner
                 android:id="@+id/hazmatType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Select Impact Level"
                 android:layout_marginBottom="10dp"
-                />
+                android:hint="Select Impact Level" />
 
-<!--            <EditText-->
-<!--                android:id="@+id/Hazmat"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="53dp"-->
-<!--                android:hint="Hazmat type"-->
-<!--                android:layout_marginBottom="10dp"/>-->
+            <!--            <EditText-->
+            <!--                android:id="@+id/Hazmat"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="53dp"-->
+            <!--                android:hint="Hazmat type"-->
+            <!--                android:layout_marginBottom="10dp"/>-->
 
             <TextView
                 android:id="@+id/Notes1"
@@ -335,8 +343,8 @@
                 android:id="@+id/Notes"
                 android:layout_width="match_parent"
                 android:layout_height="53dp"
-                android:hint="Notes"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                android:hint="Notes" />
 
             <TextView
                 android:id="@+id/Upload"
@@ -354,11 +362,12 @@
 
                 <Button
                     android:id="@+id/choosefile"
-                    android:layout_width="193dp"
-                    android:layout_height="74dp"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
                     android:layout_margin="10dp"
-                    android:text="Choose File"
+                    android:background="@drawable/rounded_corners"
                     android:onClick="selectImagesAction"
+                    android:text="Choose File"
                     app:layout_column="0"
                     app:layout_row="0" />
 
@@ -379,6 +388,7 @@
                 android:layout_width="159dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
+                android:background="@drawable/rounded_corners"
                 android:onClick="onSubmit"
                 android:text="SUBMIT" />
 

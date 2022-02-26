@@ -14,6 +14,7 @@
         android:id="@+id/backToIncidentReport"
         android:layout_width="280dp"
         android:layout_height="44dp"
+        android:background="@drawable/rounded_corners"
         android:onClick="backToIncidentReport"
         android:text="Go To Incident Report"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -47,10 +47,10 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.664"
+        app:layout_constraintHorizontal_bias="0.665"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.264" />
+        app:layout_constraintVertical_bias="0.244" />
 
     <TextView
         android:id="@+id/lName"
@@ -60,10 +60,10 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.664"
+        app:layout_constraintHorizontal_bias="0.665"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.368" />
+        app:layout_constraintVertical_bias="0.351" />
 
     <TextView
         android:id="@+id/addressProfile"
@@ -73,10 +73,10 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.664"
+        app:layout_constraintHorizontal_bias="0.665"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.568" />
+        app:layout_constraintVertical_bias="0.549" />
 
     <TextView
         android:id="@+id/qualification"
@@ -86,15 +86,16 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.664"
+        app:layout_constraintHorizontal_bias="0.665"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.789" />
+        app:layout_constraintVertical_bias="0.77" />
 
     <Button
         android:id="@+id/reports"
         android:layout_width="164dp"
         android:layout_height="48dp"
+        android:background="@drawable/rounded_corners"
         android:onClick="reports"
         android:text="Your Reports"
         android:textColor="@color/white"
@@ -184,6 +185,7 @@
         android:id="@+id/backButton"
         android:layout_width="150dp"
         android:layout_height="50dp"
+        android:background="@drawable/rounded_corners"
         android:onClick="back"
         android:text="Back"
         android:textColor="@color/white"
@@ -202,10 +204,10 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.664"
+        app:layout_constraintHorizontal_bias="0.665"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.466" />
+        app:layout_constraintVertical_bias="0.448" />
 
     <TextView
         android:id="@+id/phoneNumber"
@@ -215,9 +217,9 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.664"
+        app:layout_constraintHorizontal_bias="0.665"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.681" />
+        app:layout_constraintVertical_bias="0.66" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

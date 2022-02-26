@@ -3,18 +3,42 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/drawable-v24/my_button_bg.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/drawable/ic_baseline_android_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/drawable/ic_baseline_chat_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/drawable/ic_baseline_exit_to_app_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/drawable/ic_baseline_send_24.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/drawable/ic_launcher_background.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/drawable/rounded_corners.xml" value="0.19583333333333333" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/activity_chat.xml" value="0.1796875" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/activity_group_chat.xml" value="0.1796875" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/activity_home_screen.xml" value="0.1796875" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/activity_images.xml" value="0.1796875" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/activity_incident_list_response.xml" value="0.1796875" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/activity_mainreport.xml" value="0.1796875" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/activity_maps.xml" value="0.1796875" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/activity_profile_management.xml" value="0.22" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/activity_register.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/activity_reports.xml" value="0.1796875" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/activity_second.xml" value="0.1" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/activity_tabs.xml" value="0.1796875" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/card_item.xml" value="0.1796875" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/custom_marker.xml" value="0.1796875" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/fragment_chats.xml" value="0.1796875" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/fragment_contacts.xml" value="0.1796875" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/fragment_groups.xml" value="0.1796875" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/gv_item.xml" value="0.1796875" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/incident_view.xml" value="0.1796875" />
+        <entry key="..\:/Users/S541988/projects/CERTApp2/app/src/main/res/layout/navigation_header.xml" value="0.1" />
         <entry key="..\:/Users/S541995/Downloads/CERTApp2-main (1)/CERTApp2/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
         <entry key="..\:/Users/S541995/Downloads/CERTApp2-main (1)/CERTApp2/app/src/main/res/layout/activity_mainreport.xml" value="0.1796875" />
         <entry key="..\:/Users/S541995/Downloads/CERTApp2-main (1)/CERTApp2/app/src/main/res/layout/activity_register.xml" value="0.1" />
-        <entry key="..\:/Users/S542039/Desktop/GDP/projects/CERTApp2/app/src/main/res/layout/activity_chat.xml" value="0.2" />
-        <entry key="..\:/Users/S542039/Desktop/GDP/projects/CERTApp2/app/src/main/res/layout/activity_group_chat.xml" value="0.2" />
-        <entry key="..\:/Users/S542039/Desktop/GDP/projects/CERTApp2/app/src/main/res/layout/activity_home_screen.xml" value="0.2" />
         <entry key="..\:/Users/S542039/Desktop/GDP/projects/CERTApp2/app/src/main/res/layout/activity_images.xml" value="0.22" />
         <entry key="..\:/Users/S542039/Desktop/GDP/projects/CERTApp2/app/src/main/res/layout/activity_mainreport.xml" value="0.22" />
-        <entry key="..\:/Users/S542039/Desktop/GDP/projects/CERTApp2/app/src/main/res/layout/activity_profile_management.xml" value="0.14666666666666667" />
-        <entry key="..\:/Users/S542039/Desktop/GDP/projects/CERTApp2/app/src/main/res/layout/activity_register.xml" value="0.2" />
-        <entry key="..\:/Users/S542039/Desktop/GDP/projects/CERTApp2/app/src/main/res/layout/activity_second.xml" value="0.2" />
-        <entry key="..\:/Users/S542039/Desktop/GDP/projects/CERTApp2/app/src/main/res/layout/activity_tabs.xml" value="0.2" />
         <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/drawable-v24/my_button_bg.xml" value="0.1" />
         <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/layout/activity_chat.xml" value="0.22" />
         <entry key="..\:/Users/S542300/OneDrive - nwmissouri.edu/Desktop/CERTApp2/app/src/main/res/layout/activity_create_group.xml" value="0.1796875" />
