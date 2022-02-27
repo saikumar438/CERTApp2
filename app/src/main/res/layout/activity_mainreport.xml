@@ -361,27 +361,43 @@
                 app:rowCount="2">
 
                 <Button
-                    android:id="@+id/choosefile"
+                    android:id="@+id/galleryBtn"
                     android:layout_width="150dp"
                     android:layout_height="50dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/rounded_corners"
-                    android:onClick="selectImagesAction"
+
                     android:text="Choose File"
                     app:layout_column="0"
                     app:layout_row="0" />
 
 
-                <GridView
-                    android:id="@+id/gv1"
-                    android:layout_width="378dp"
-                    android:layout_height="209dp"
-                    android:layout_weight="1"
-                    android:numColumns="3"
-                    app:layout_column="0"
-                    app:layout_row="1"></GridView>
+                <Button
+                    android:id="@+id/cameraBtn"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/rounded_corners"
+
+                    android:text="Take Photo"
+                    app:layout_column="1"
+                    app:layout_row="0" />
+
+
+
+
 
             </androidx.gridlayout.widget.GridLayout>
+            <ImageView
+                android:id="@+id/displayImageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.23000002"
+                app:srcCompat="@drawable/ic_launcher_background" />
 
             <Button
                 android:id="@+id/submitBTN"
