@@ -14,6 +14,12 @@
 
     </item>
     <item
+        android:id="@+id/whatsapp"
+        android:title="WhatsApp"
+        android:icon="@drawable/ic_baseline_chat_24">
+
+    </item>
+    <item
         android:id="@+id/logout"
         android:title="Logout"
         android:icon="@drawable/ic_baseline_exit_to_app_24">

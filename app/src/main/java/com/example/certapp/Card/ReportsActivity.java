@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.certapp.ProfileManagement;
 import com.example.certapp.R;
+import com.example.certapp.reports.FullReport;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,12 +27,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ReportsActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -38,9 +42,15 @@ public class ReportsActivity extends AppCompatActivity {
     private ArrayList<ReportModel> reportsArrayList;
 //    private FirebaseFirestore db;
 
+    public QueryDocumentSnapshot reportDocument;
+
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     DatabaseReference database;
+    HashMap<Integer,String> map = new HashMap<>();
+    ArrayList<QueryDocumentSnapshot> list = new ArrayList<>();
+    int count=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +60,8 @@ public class ReportsActivity extends AppCompatActivity {
         fStore = FirebaseFirestore.getInstance();
         database = FirebaseDatabase.getInstance().getReference("reportsDB");
         initializeCardView();
+
+
     }
 
     private void initializeCardView(){
@@ -62,7 +74,19 @@ public class ReportsActivity extends AppCompatActivity {
         reportsAdapter.setOnItemClickListener(new ClickListener<ReportModel>(){
             @Override
             public void onClick(View view, ReportModel data, int position) {
+               // System.out.println(document.getId() + "Data of this document "+ document.getData());
                 Toast.makeText(getApplicationContext(),"Position = "+position+"\n Item = "+data.getUserName(),Toast.LENGTH_SHORT).show();
+
+                String temp = map.get(position);
+
+                reportDocument=list.get(position);
+
+                //reportDocument = (QueryDocumentSnapshot) map.get(position);
+                System.out.println("Data of the first position "+reportDocument.getData());
+
+                Intent intent = new Intent(ReportsActivity.this, FullReport.class);
+                intent.putExtra("reportDocument", String.valueOf(reportDocument));
+                startActivity(intent);
             }
         });
         createDataForCards();
@@ -77,6 +101,10 @@ public class ReportsActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
+                        reportDocument = document;
+                        list.add(document);
+                        map.put(count++,document.getId());
+                        System.out.println("Value of the document is :- "+document);
                         Log.e("TAG", document.getId() + " => " + document.getData());
                         System.out.println("The user value is :"+document.getString("User"));
                         ReportModel r=new ReportModel();

@@ -9,6 +9,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.ClipData;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -74,6 +76,33 @@ public class HomeScreen extends AppCompatActivity implements NavigationView.OnNa
 
                     Intent intent = new Intent(HomeScreen.this,ChatActivity.class);
                     startActivity(intent);
+                }
+                else if(id == R.id.whatsapp)
+                {
+                    Toast.makeText(HomeScreen.this,"Clicked on whatsapp",Toast.LENGTH_LONG).show();
+
+//                    Intent intent = getPackageManager().getLaunchIntentForPackage("com.whatsapp");
+//
+//                    intent.setPackage("com.whatsapp");
+//                    Log.e("Intent for ", String.valueOf(intent));
+//                    if(intent != null)
+//                    {
+//                        startActivity(intent);
+//                    }
+//                    Intent intent = new Intent(HomeScreen.this,ChatActivity.class);
+//                    startActivity(intent);
+
+                        PackageManager pm = getPackageManager();
+                    Intent appIntent = pm.getLaunchIntentForPackage("com.whatsapp");//change app package name
+                    Log.e("Intent for ", String.valueOf(appIntent));
+                    if(appIntent != null)
+                        startActivity(appIntent);
+                    else {
+                        Toast.makeText(HomeScreen.this,"App not installed ",Toast.LENGTH_LONG).show();
+                        //App not installed !
+                    }
+
+
                 }
                 else if(id == R.id.logout)
                 {
