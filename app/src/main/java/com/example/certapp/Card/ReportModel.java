@@ -1,11 +1,15 @@
 package com.example.certapp.Card;
 
-public class ReportModel {
+import java.io.Serializable;
+
+public class ReportModel implements Serializable {
 
     private String userName;
     private String title;
     private String timedate;
     private String location;
+    private String lattitude;
+    private String longitude;
     private String description;
     private String typeOfIncident;
     private String impactLevel;
@@ -23,10 +27,26 @@ public class ReportModel {
     private String zipcode;
     private String updatedAt;
 
+    public String getLattitude() {
+        return lattitude;
+    }
+
+    public void setLattitude(String lattitude) {
+        this.lattitude = lattitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
+
     public ReportModel() {
     }
 
-    public ReportModel(String userName, String title, String timedate, String location, String description, String typeOfIncident, String impactLevel, String structuralDamageImpact, String red, String green, String yellow, String black, String hazmatType, String incidentId, String notes, String address, String imageURL, String state, String zipcode, String updatedAt) {
+    public ReportModel(String userName, String title, String timedate, String location, String description, String typeOfIncident, String impactLevel, String structuralDamageImpact, String red, String green, String yellow, String black, String hazmatType, String incidentId, String notes, String address, String imageURL, String state, String zipcode,String lat,String longitude, String updatedAt) {
         this.userName = userName;
         this.title = title;
         this.timedate = timedate;
@@ -44,6 +64,8 @@ public class ReportModel {
         this.notes = notes;
         this.address = address;
         this.imageURL = imageURL;
+        this.lattitude=lat;
+        this.longitude=longitude;
         this.state = state;
         this.zipcode = zipcode;
         this.updatedAt = updatedAt;

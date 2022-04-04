@@ -7,14 +7,18 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 
+import com.example.certapp.HomeScreen;
 import com.example.certapp.ProfileManagement;
 import com.example.certapp.R;
+import com.example.certapp.reports.ViewFullReport;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,9 +34,10 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ReportsActivity extends AppCompatActivity {
+public class ReportsActivity extends AppCompatActivity  {
     private RecyclerView recyclerView;
     private ReportsAdapter reportsAdapter;
     private ArrayList<ReportModel> reportsArrayList;
@@ -62,6 +67,9 @@ public class ReportsActivity extends AppCompatActivity {
         reportsAdapter.setOnItemClickListener(new ClickListener<ReportModel>(){
             @Override
             public void onClick(View view, ReportModel data, int position) {
+                Intent viewReport=new Intent(ReportsActivity.this, ViewFullReport.class);
+                viewReport.putExtra("reportData", (Serializable) data);
+                startActivity(viewReport);
                 Toast.makeText(getApplicationContext(),"Position = "+position+"\n Item = "+data.getUserName(),Toast.LENGTH_SHORT).show();
             }
         });
@@ -97,8 +105,8 @@ public class ReportsActivity extends AppCompatActivity {
                         r.setNotes(document.getString("notes"));
                         r.setAddress(document.getString("address"));
                         r.setImageURL(document.getString("imageURL"));
-//                        r.setLatitude(document.getString("latitude"));
-//                        r.setLongitude(document.getString("longitude"));
+                        r.setLattitude(document.getString("latitude"));
+                        r.setLongitude(document.getString("longitude"));
                         r.setState(document.getString("state"));
                         r.setZipcode(document.getString("zipcode"));
                         r.setUpdatedAt(document.getString("updatedAt"));
