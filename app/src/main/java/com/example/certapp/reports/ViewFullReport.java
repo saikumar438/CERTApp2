@@ -45,9 +45,20 @@ public class ViewFullReport extends AppCompatActivity {
         TextView tvZipcode = findViewById(R.id.tvRZipcode);
         tvZipcode.setText(model.getZipcode());
 
-        TextView tvCasualities = findViewById(R.id.tvRCasualities);
-        tvCasualities.setText(model.getRed()+model.getBlack()+model.getGreen()+model.getYellow());
+        TextView tvRed = findViewById(R.id.tvRRed);
+        tvRed.setText(model.getRed());
 
+        TextView tvYellow = findViewById(R.id.tvRYellow);
+        tvYellow.setText(model.getYellow());
+
+        TextView tvGreen = findViewById(R.id.tvRGreen);
+        tvGreen.setText(model.getGreen());
+
+        TextView tvBlack = findViewById(R.id.tvRBlack);
+        tvBlack.setText(model.getBlack());
+
+        TextView tvNotes = findViewById(R.id.tvRNotes);
+        tvNotes.setText(model.getNotes());
 
     }
 }
