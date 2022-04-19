@@ -23,9 +23,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CERTApp">
         <activity
-
+            android:name=".reports.ViewReportLocationFrag"
+            android:exported="false" />
+        <activity
             android:name=".reports.ViewFullReport"
-
             android:exported="true" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
