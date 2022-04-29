@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5A8882"
+    android:background="#78A39E"
     android:fillViewport="true">
 
 
@@ -28,10 +28,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintHorizontal_bias="0.028"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.059" />
+            app:layout_constraintVertical_bias="0.116" />
 
         <TextView
             android:id="@+id/tvRName"
@@ -43,10 +43,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.719"
+            app:layout_constraintHorizontal_bias="0.885"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.06" />
+            app:layout_constraintVertical_bias="0.121" />
 
         <TextView
             android:id="@+id/tvReport"
@@ -58,10 +58,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.063"
+            app:layout_constraintHorizontal_bias="0.013"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.109" />
+            app:layout_constraintVertical_bias="0.168" />
 
         <TextView
             android:id="@+id/tvRTitle"
@@ -73,10 +73,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.719"
+            app:layout_constraintHorizontal_bias="0.885"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.105" />
+            app:layout_constraintVertical_bias="0.173" />
 
         <TextView
             android:id="@+id/tvDateTime"
@@ -88,10 +88,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.133"
+            app:layout_constraintHorizontal_bias="0.025"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.155" />
+            app:layout_constraintVertical_bias="0.229" />
 
         <TextView
             android:id="@+id/tvRDateTime"
@@ -103,10 +103,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.679"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.153" />
+            app:layout_constraintVertical_bias="0.231" />
 
         <TextView
             android:id="@+id/tvIncidentType"
@@ -118,10 +118,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.103"
+            app:layout_constraintHorizontal_bias="0.018"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.206" />
+            app:layout_constraintVertical_bias="0.3" />
 
         <TextView
             android:id="@+id/tvRIncidentType"
@@ -133,10 +133,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.646"
+            app:layout_constraintHorizontal_bias="0.862"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.207" />
+            app:layout_constraintVertical_bias="0.301" />
 
         <TextView
             android:id="@+id/tvHazmatType"
@@ -148,10 +148,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.096"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.261" />
+            app:layout_constraintVertical_bias="0.375" />
 
         <TextView
             android:id="@+id/tvAddress"
@@ -163,10 +163,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.161"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.325" />
+            app:layout_constraintVertical_bias="0.444" />
 
         <TextView
             android:id="@+id/tvState"
@@ -178,10 +178,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.158"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.393" />
+            app:layout_constraintVertical_bias="0.497" />
 
         <TextView
             android:id="@+id/tvRHazmatType"
@@ -193,10 +193,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.619"
+            app:layout_constraintHorizontal_bias="0.885"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.26" />
+            app:layout_constraintVertical_bias="0.361" />
 
         <TextView
             android:id="@+id/tvRAddress"
@@ -208,10 +208,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.619"
+            app:layout_constraintHorizontal_bias="0.885"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.327" />
+            app:layout_constraintVertical_bias="0.427" />
 
         <TextView
             android:id="@+id/tvRState"
@@ -223,25 +223,25 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.596"
+            app:layout_constraintHorizontal_bias="0.885"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.397" />
+            app:layout_constraintVertical_bias="0.497" />
 
         <TextView
             android:id="@+id/tvRed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="31dp"
+            android:layout_height="28dp"
             android:text="Red"
             android:textColor="#0F0F10"
             android:textSize="15dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.208"
+            app:layout_constraintHorizontal_bias="0.005"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.608" />
+            app:layout_constraintVertical_bias="0.64" />
 
         <TextView
             android:id="@+id/tvRRed"
@@ -253,10 +253,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.562"
+            app:layout_constraintHorizontal_bias="0.885"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.602" />
+            app:layout_constraintVertical_bias="0.644" />
 
         <TextView
             android:id="@+id/tvYellow"
@@ -268,10 +268,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.216"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.669" />
+            app:layout_constraintVertical_bias="0.713" />
 
         <TextView
             android:id="@+id/tvRYellow"
@@ -283,10 +283,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.562"
+            app:layout_constraintHorizontal_bias="0.885"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.676" />
+            app:layout_constraintVertical_bias="0.716" />
 
         <TextView
             android:id="@+id/tvGreen"
@@ -294,14 +294,14 @@
             android:layout_height="wrap_content"
             android:text="Green"
             android:textColor="#0F0F10"
-            android:textSize="20dp"
+            android:textSize="15dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.165"
+            app:layout_constraintHorizontal_bias="0.005"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.731" />
+            app:layout_constraintVertical_bias="0.782" />
 
         <TextView
             android:id="@+id/tvRGreen"
@@ -313,26 +313,26 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.596"
+            app:layout_constraintHorizontal_bias="0.885"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.727" />
+            app:layout_constraintVertical_bias="0.792" />
 
         <TextView
             android:id="@+id/tvFullreport"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Full Report"
-            android:textColor="#0F0F10"
+            android:textColor="#EF4107"
             android:textSize="30dp"
             android:textStyle="bold"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.449"
+            app:layout_constraintHorizontal_bias="0.57"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.009" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/tvBlack"
@@ -344,10 +344,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.213"
+            app:layout_constraintHorizontal_bias="0.021"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.799" />
+            app:layout_constraintVertical_bias="0.85" />
 
         <TextView
             android:id="@+id/tvRBlack"
@@ -359,10 +359,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.578"
+            app:layout_constraintHorizontal_bias="0.885"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.796" />
+            app:layout_constraintVertical_bias="0.862" />
 
         <TextView
             android:id="@+id/tvNotes"
@@ -374,10 +374,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.121"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.475" />
+            app:layout_constraintVertical_bias="0.564" />
 
         <TextView
             android:id="@+id/tvRNotes"
@@ -389,10 +389,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.567"
+            app:layout_constraintHorizontal_bias="0.885"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.481" />
+            app:layout_constraintVertical_bias="0.576" />
 
         <Button
             android:id="@+id/viewFullLocation"
@@ -402,10 +402,10 @@
             android:text="View Incident location"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.319"
+            app:layout_constraintHorizontal_bias="0.571"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.933" />
+            app:layout_constraintVertical_bias="1.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
